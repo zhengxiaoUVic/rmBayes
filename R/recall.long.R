@@ -1,4 +1,4 @@
-#' The Repeated Measures Data: Long Data Format
+#' The Repeated-Measures Data: Long Data Format
 #'
 #' A data frame that is in the long format. A hypothetical experiment is designed to
 #' measure effects of study time in a free-recall paradigm. In this hypothetical experiment,
@@ -14,5 +14,5 @@
 #'   \item{Response}{The number of words recalled out of 20 for each of 10 subjects in each of three conditions.}
 #' }
 #' @references Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. Psychonomic Bulletin & Review, 1, 476–490.
-#' @source \url{http://dx.doi.org/10.3758/BF03210951}
+#' @source \doi{10.3758/BF03210951}
 "recall.long"
