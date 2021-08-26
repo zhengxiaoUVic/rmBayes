@@ -1,0 +1,174 @@
+---
+output: 
+  github_document:
+    pandoc_args: --webtex
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Bayesian Interval Estimation for Repeated-Measures Designs
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs, this Stan-based R package provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors. The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
+
+
+## Installation
+
+You can install the released version of rmBayes from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("rmBayes")
+```
+
+If errors occur, you may need to configure your R installation to be able to compile C++ code. Follow the link below for your respective operating system for more instructions (Stan Development Team, 2020):
+
+* [Mac - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac)
+* [Windows - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows)
+* [Linux - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
+
+
+## Statistical Model
+
+When the homogeneity of variance holds,
+a linear mixed-effects model $\mathcal{M}_1$ for the mean response in a one-way within-subjects design is
+
+$$\mathcal{M}_1:\ Y_{ij}=\mu+\sigma_\epsilon (t_i+b_j)+\epsilon_{ij}\quad\text{versus}\quad\mathcal{M}_0:\ Y_{ij}=\mu+\sigma_\epsilon b_j+\epsilon_{ij},$$
+$$\epsilon_{ij}\overset{\text{i.i.d.}}{\sim}\mathcal{N}(0,\sigma_\epsilon^2), \ i=1,\dotsb,a;\ j=1,\dotsb,n,$$
+
+where $Y_{ij}$ represents the mean response for the $j$th
+subject under the $i$th level of the experimental manipulation;
+$\mu$ is the overall mean, $\tau_i = \sigma_\epsilon t_i$ is the $i$th level of the experimental manipulation;
+$\mu_i = \mu + \tau_i$, for the means model, is the $i$th condition mean;
+$b_j$ is the standardized subject-specific random effects;
+$a$ is the number of levels; $n$ is the number of subjects.
+The effects $t_i$ and $b_j$ are both standardized relative to the standard deviation of the error $\sigma_\epsilon$ and become dimensionless (Rouder, Morey, Speckman, & Province, 2012).
+
+
+## Method 0
+
+Nathoo et al. (2018) derived a Bayesian within-subject interval by conditioning on maximum likelihood estimates of the subject-specific random effects. An assumption articulated in Method 0 is the Jeffreys prior for the condition means $\mu_i$ and residual variance $\sigma_\epsilon^2$, i.e.,
+$$\pi(\mu_1,\dotsb,\mu_a,\sigma_\epsilon^2)\varpropto\frac{1}{\sigma_\epsilon^2}.$$
+
+Method 0 constructs the highest-density interval (HDI) as
+$$\text{HDI}=M_{i\centerdot}\pm\sqrt{\frac{\textit{SS}_{S\times C}}{n(n-1)a}}\cdot t_{1-\frac{\alpha}{2},\ a(n-1)}^{*}.$$
+
+**Note**: The sample mean for the $i$th condition is $M_{i\centerdot}=\frac{1}{n}\sum_{j=1}^{n}Y_{ij}$.
+
+The sample mean for the $j$th subject is $M_{\centerdot j}=\frac{1}{a}\sum_{i=1}^{a}Y_{ij}$.
+
+The overall mean is $M=\frac{1}{an}\sum_{i=1}^{a}\sum_{j=1}^{n}Y_{ij}$.
+
+The within-group sum-of-squares (SS) is $\textit{SS}_W=\sum_{i=1}^{a}\sum_{j=1}^{b}\left(Y_{ij}-M_{i\centerdot}\right)^2$.
+
+The interaction SS is $\textit{SS}_{S\times C}=\sum_{i=1}^{a}\sum_{j=1}^{n}\left(Y_{ij}-(M_{\centerdot j}-M)-M_{i\centerdot}\right)^2$.
+
+$t^*$ refers to the two-sided $t$-distribution critical value.
+
+``` r
+library(rmBayes)
+
+str(recall.long)
+
+rmHDI(recall.long, method = 0)
+```
+
+
+## Methods 4-6
+
+Heck (2019) proposed modifying the conditional within-subjects Bayesian interval to account for uncertainty and shrinkage in the estimated random effects. He derived a modification by applying the HDI equation in Method 0 for the within-subjects Bayesian interval at each iteration of a Markov chain Monte Carlo (MCMC) sampling algorithm and then taking the average interval across posterior samples. Priors used in Method 4 are the Jeffreys prior for the condition means and residual variance, a $g$-prior structure for standardized subject-specific random effects (i.e., $b_j\mid g_b\overset{\text{ind.}}{\sim}\mathcal{N}(0,g_b)$), and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the $g$-priors (i.e., $g_b\sim\text{Scale-inv-}\chi^2(1,h_b^2)$).
+
+Method 4 constructs the HDI as $$\text{HDI}=\mathbb{E}\left[\mu_{i}\pm\frac{\sigma_{\epsilon}}{\sqrt{n}}\cdot t_{1-\frac{\alpha}{2},\ a(n-1)}^{*}\mid\text{Data}\right].$$
+
+``` r
+rmHDI(recall.long, method = 4, seed = 277)
+```
+
+To assess the robustness of HDI results with respect to the choice of a prior distribution for the standard deviation of the subject-specific random effects in the within-subjects case, two additional priors are considered: uniform and half-Cauchy ($\sigma_\epsilon\sqrt{g_b}\sim\text{Unif}(0,1)$ or $\sigma_\epsilon\sqrt{g_b}\sim\text{Half-Cauchy}(0,1)$) for Methods 5 and 6, respectively.
+
+``` r
+rmHDI(recall.long, method = 5, seed = 277)
+```
+
+``` r
+rmHDI(recall.long, method = 6, seed = 277)
+```
+
+
+## Methods 1 (Default) and 2-3
+
+Methods 0 and 4-6 arbitrarily assume improper uniform priors for the condition means. In this work, we expanded the space of possible priors by appling the HDI equation in Method 0 to derive the newly proposed intervals from MCMC sampling, but assuming default $g$-priors for standardized treatment effects. In other words, Method 1 uses the Jeffreys prior for the overall mean (rather than the condition means), i.e., $$\pi(\mu,\sigma_\epsilon^2)\varpropto\frac{1}{\sigma_\epsilon^2}.$$
+
+``` r
+rmHDI(recall.long, seed = 277)
+```
+
+Similar to Methods 5 and 6, two additional priors are considered: uniform and half-Cauchy ($\sigma_\epsilon\sqrt{g_b}\sim\text{Unif}(0,1)$ or $\sigma_\epsilon\sqrt{g_b}\sim\text{Half-Cauchy}(0,1)$) for Methods 2 and 3, respectively, for the standard deviation of the subject-specific random effects in the within-subjects case.
+
+``` r
+rmHDI(recall.long, method = 2, seed = 277)
+```
+
+``` r
+rmHDI(recall.long, method = 3, seed = 277)
+```
+
+
+## Standard HDI
+
+MCMC sampling of condition means $\mu_i$ can also be used to obtain the standard HDI, which, unlike Methods 0-6, does not remove the between-subjects variability that is not of interest in within-subjects designs. This method assumes the Jeffreys prior for the overall mean and residual variance, a $g$-prior structure for standardized treatment effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the $g$-priors.
+
+``` r
+rmHDI(recall.long, design = "between", seed = 277)
+```
+
+
+## Random Versus Fixed Effects
+
+When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that 
+$$t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),$$
+$$(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathrm{Q},$$
+$$\text{and } \mathrm{I_a}-a^{-1}\mathrm{J_a}=\mathrm{Q}\cdot\mathrm{I_{a-1}}\cdot\mathrm{Q^{\top}},$$
+where $\mathrm{I_{a}}$ is the identity matrix of size $a$, $\mathrm{J_a}$ is the all-ones matrix of size $a$, \mathrm{Q} is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathrm{I_a}-a^{-1}\mathrm{J_a}$, and $(t_1,\dotsb,t_{a})$ is the row vector.
+
+``` r
+rmHDI(recall.long, treat = "fixed", seed = 277)
+```
+
+## Heteroscedasticity
+
+When the homogeneity of variance does not hold, the resulting HDI widths for conditions are unequal. Two approaches are currently provided for the heteroscedastic within-subjects data: Implementing the approach developed by Nathoo et al. (2018);
+
+``` r
+rmHDI(recall.long, method = 0, var.equal = FALSE)
+```
+
+Or, implementing the heteroscedastic standard HDI method on the subject-centering transformed data (subtracting from the original response a corresponding subject mean
+minus the overall mean). If a method option other than `0` or `1` is used with `var.equal=FALSE`, a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.
+
+``` r
+rmHDI(recall.long, var.equal = FALSE)
+```
+
+
+## References
+Heck, D. W. (2019). Accounting for estimation uncertainty and shrinkage in Bayesian within-subject intervals: A comment on Nathoo, Kilshaw, and Masson (2018). *Journal of Mathematical Psychology*, *88*, 27–31.
+
+Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. *Psychonomic Bulletin & Review*, *1*, 476–490.
+
+Nathoo, F. S., Kilshaw, R. E., & Masson, M. E. J. (2018). A better (Bayesian) interval estimate for within-subject designs. *Journal of Mathematical Psychology*, *86*, 1–9.
+
+Rouder, J. N., Morey, R. D., Speckman, P. L., & Province, J. M. (2012). Default Bayes factors for ANOVA designs. *Journal of Mathematical Psychology*, *56*, 356–374.
+
+Stan Development Team (2020). RStan: the R interface to Stan. R package version 2.21.2. https://mc-stan.org
+

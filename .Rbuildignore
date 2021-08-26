@@ -1,0 +1,13 @@
+^rmBayes\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^\.travis\.yml$
+^\.DS_Store$
+^\.o$
+^\.so$
+^\.dll$
+^\.Rhistory$
+^README\.Rmd$
+^README\.md$
+^\.git$
