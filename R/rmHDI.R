@@ -6,7 +6,7 @@
 #'proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
 #'
 #'We consider three credible intervals:
-#'(1) the within-subjects Bayesian interval developed by Nathoo, Kilshaw, and Masson (2018),
+#'(1) the within-subjects Bayesian interval developed by Nathoo et al. (2018),
 #'whose derivation conditions on estimated random effects,
 #'(2) a modification of (1) based on a proposal by Heck (2019) to allow for shrinkage and account for estimation uncertainty,
 #'and (3) an alternative to option (2) based on the default priors used in Rouder, Morey, Speckman, and Province (2012).
@@ -62,7 +62,7 @@
 #' @param iter A positive integer specifying the number of iterations for each chain (excluding warmup). The default is 2000.
 #' @param chains A positive integer specifying the number of Markov chains. The default is 4.
 #' @param method A positive integer in \code{0:6} specifying which method is used to construct within-subjects HDIs (see Details).
-#' \code{method=0} implements the approach developed by Nathoo, Kilshaw, and Masson (2018).
+#' \code{method=0} implements the approach developed by Nathoo et al. (2018).
 #' \code{method=4} implements the approach by Heck (2019).
 #' \code{method=5} implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
 #' \code{method=6} implements the approach by Heck (2019), but using the standard half-Cauchy prior distribution for the standard deviation of subject-specific random effects.
@@ -74,7 +74,7 @@
 #' @param var.equal A logical variable indicating whether to treat the variance of the response within each condition (level of the experimental manipulation) as being equal.
 #' If \code{TRUE} (default), the homogeneity of variance holds, and a common variance across conditions is assumed.
 #' Otherwise, \code{FALSE} will generate unequal interval widths for conditions.
-#' Two approaches are currently provided for the heteroscedastic within-subjects data: \code{method=0} implements the approach developed by Nathoo et al. (2018);
+#' Two approaches are currently provided for the heteroscedastic within-subjects data: \code{method=0} implements the approach developed by Nathoo et al. (2018, p. 5);
 #' \code{method=1} (default method if \code{var.equal=FALSE}) implements the heteroscedastic standard HDI method on the subject-centering transformed data.
 #' If a \code{method} option other than \code{0} or \code{1} is used with \code{var.equal=FALSE},
 #' a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.
@@ -255,7 +255,7 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
 
   if (var.equal) {
 
-    if (method == 0) { #Nathoo, Kilshaw, & Masson (2018)
+    if (method == 0) { #Nathoo et al. (2018)
       SS <- sum((data - outer(rowMeans(data), colMeans(data), "+") + mean(data))^2) #interaction sum of squares
       within_error <- sqrt(SS / (N * (N - 1) * C))
       width <- within_error * tcrit
