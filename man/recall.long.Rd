@@ -3,7 +3,7 @@
 \docType{data}
 \name{recall.long}
 \alias{recall.long}
-\title{The Repeated Measures Data: Long Data Format}
+\title{The Repeated-Measures Data: Long Data Format}
 \format{
 A data frame with 30 rows and 3 variables:
 \describe{
@@ -13,7 +13,7 @@ A data frame with 30 rows and 3 variables:
 }
 }
 \source{
-\url{http://dx.doi.org/10.3758/BF03210951}
+\doi{10.3758/BF03210951}
 }
 \usage{
 recall.long

@@ -3,17 +3,17 @@
 \docType{data}
 \name{recall.wide}
 \alias{recall.wide}
-\title{The Repeated Measures Data: Wide Data Format}
+\title{The Repeated-Measures Data: Wide Data Format}
 \format{
 A data frame with 10 rows (each row corresponds to a subject) and 3 variables:
 \describe{
-\item{Level1}{The number of words recalled under the first level of the experimental manipulation, 1 second exposure duration per word.}
-\item{Level2}{The number of words recalled under the second level of the experimental manipulation, 2 seconds exposure duration per word.}
-\item{Level3}{The number of words recalled under the third level of the experimental manipulation, 5 seconds exposure duration per word.}
+\item{Level1}{The number of words recalled under the first level of the experimental manipulation - 1 second exposure duration per word.}
+\item{Level2}{The number of words recalled under the second level of the experimental manipulation - 2 seconds exposure duration per word.}
+\item{Level3}{The number of words recalled under the third level of the experimental manipulation - 5 seconds exposure duration per word.}
 }
 }
 \source{
-\url{http://dx.doi.org/10.3758/BF03210951}
+\doi{10.3758/BF03210951}
 }
 \usage{
 recall.wide
