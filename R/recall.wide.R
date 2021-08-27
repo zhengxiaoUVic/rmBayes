@@ -14,5 +14,4 @@
 #'   \item{Level3}{The number of words recalled under the third level of the experimental manipulation - 5 seconds exposure duration per word.}
 #' }
 #' @references Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. Psychonomic Bulletin & Review, 1, 476–490.
-#' @source \doi{10.3758/BF03210951}
 "recall.wide"

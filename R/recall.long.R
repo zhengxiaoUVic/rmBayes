@@ -14,5 +14,4 @@
 #'   \item{Response}{The number of words recalled out of 20 for each of 10 subjects in each of three conditions.}
 #' }
 #' @references Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. Psychonomic Bulletin & Review, 1, 476–490.
-#' @source \doi{10.3758/BF03210951}
 "recall.long"

@@ -12,9 +12,6 @@ A data frame with 10 rows (each row corresponds to a subject) and 3 variables:
 \item{Level3}{The number of words recalled under the third level of the experimental manipulation - 5 seconds exposure duration per word.}
 }
 }
-\source{
-\doi{10.3758/BF03210951}
-}
 \usage{
 recall.wide
 }

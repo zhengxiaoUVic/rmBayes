@@ -12,9 +12,6 @@ A data frame with 30 rows and 3 variables:
 \item{Response}{The number of words recalled out of 20 for each of 10 subjects in each of three conditions.}
 }
 }
-\source{
-\doi{10.3758/BF03210951}
-}
 \usage{
 recall.long
 }
