@@ -4,6 +4,9 @@
 # Bayesian Interval Estimation for Repeated-Measures Designs
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/zhengxiaoUVic/rmBayes)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way
@@ -248,7 +251,7 @@ rmHDI(recall.long, treat = "fixed", seed = 277)
 When the homogeneity of variance does not hold, the resulting HDI widths
 for conditions are unequal. Two approaches are currently provided for
 the heteroscedastic within-subjects data: Implementing the approach
-developed by Nathoo et al. (2018);
+developed by Nathoo et al. (2018, p. 5);
 
 ``` r
 rmHDI(recall.long, method = 0, var.equal = FALSE)
