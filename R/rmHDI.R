@@ -151,12 +151,12 @@ rmHDI <- function(data = NULL, whichSubject = "Subject", whichLevel = "Level", w
                   seed = sample.int(.Machine$integer.max, 1),
                   diagnostics = FALSE, permuted = TRUE, ...) {
 
-  design <- match.arg(design)
-  treat <- match.arg(treat)
   method <- match.arg(as.character(method), choices = 0:6)
   var.equal <- match.arg(as.character(var.equal), choices = c(TRUE, FALSE))
   diagnostics <- match.arg(as.character(diagnostics), choices = c(FALSE, TRUE))
   permuted <- match.arg(as.character(permuted), choices = c(TRUE, FALSE))
+  design <- match.arg(design)
+  treat <- match.arg(treat)
 
   if(!missing(cred) && (length(cred) != 1 || !is.finite(cred) ||
                         cred < 0 || cred > 1)) {
@@ -221,7 +221,7 @@ rmHDI <- function(data = NULL, whichSubject = "Subject", whichLevel = "Level", w
   }
 
   C <- ncol(data) #number of conditions
-  if (C == 1) {stop("Number of conditions should be greater than two.")}
+  if (C == 1) {stop("Number of conditions should be greater than one.")}
   N <- nrow(data) #number of subjects (in a balanced group)
   tcrit <- stats::qt((1 + cred) / 2, df = C * (N - 1)) #t-critical value
 
