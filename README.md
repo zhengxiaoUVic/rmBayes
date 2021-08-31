@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/zhengxiaoUVic/rmBayes)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way
