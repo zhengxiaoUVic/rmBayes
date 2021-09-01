@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 # Bayesian Interval Estimation for Repeated-Measures Designs
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/github/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
+[![Travis build status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 [![Codecov test coverage](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg)](https://codecov.io/gh/zhengxiaoUVic/rmBayes?branch=main)
 [![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
