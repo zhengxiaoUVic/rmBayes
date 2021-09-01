@@ -11,6 +11,7 @@ status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://tr
 status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 [![Codecov test
 coverage](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg)](https://codecov.io/gh/zhengxiaoUVic/rmBayes?branch=main)
+[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way
@@ -44,6 +45,10 @@ operating system for more instructions (Stan Development Team, 2020):
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
 ## Statistical Model
+
+<span style="color:red">Note</span>: If you see the LaTeX equations not
+getting rendered properly, please try another web browser such as
+Firefox or Safari (instead of Chrome).
 
 When the homogeneity of variance holds, a linear mixed-effects model
 ![\\mathcal{M}\_1](https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D_1 "\mathcal{M}_1")

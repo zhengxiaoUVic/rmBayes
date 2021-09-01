@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 [![Codecov test coverage](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg)](https://codecov.io/gh/zhengxiaoUVic/rmBayes?branch=main)
+[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs, this Stan-based R package provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors. The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
@@ -42,6 +43,8 @@ If errors occur, you may need to configure your R installation to be able to com
 
 
 ## Statistical Model
+
+<span style="color:red">Note</span>: If you see the LaTeX equations not getting rendered properly, please try another web browser such as Firefox or Safari (instead of Chrome).
 
 When the homogeneity of variance holds,
 a linear mixed-effects model $\mathcal{M}_1$ for the mean response in a one-way within-subjects design is
