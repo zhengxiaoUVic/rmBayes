@@ -80,9 +80,25 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of rmBayes from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmBayes"</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th>Type</th>
+<th>Source</th>
+<th>Command</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Release</td>
+<td><a href="https://CRAN.R-project.org">CRAN</a></td>
+<td><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("rmBayes")</a></code></td>
+</tr>
+<tr class="even">
+<td>Development</td>
+<td>GitHub</td>
+<td><code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("zhengxiaoUVic/rmBayes")</a></code></td>
+</tr>
+</tbody>
+</table>
 <p>If errors occur, you may need to configure your R installation to be able to compile C++ code. Follow the link below for your respective operating system for more instructions (Stan Development Team, 2020):</p>
 <ul>
 <li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac">Mac - Configuring C++ Toolchain</a></li>
@@ -93,6 +109,7 @@
 <div id="statistical-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#statistical-model" class="anchor"></a>Statistical Model</h2>
+<p><span style="color:red">Note</span>: If you see the LaTeX equations not getting rendered properly, please try another web browser such as Firefox or Safari (instead of Chrome).</p>
 <p>When the homogeneity of variance holds, a linear mixed-effects model <embed src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D_1" title="\mathcal{M}_1"></embed> for the mean response in a one-way within-subjects design is</p>
 <p><embed src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D_1%3A%5C%20Y_%7Bij%7D%3D%5Cmu%2B%5Csigma_%5Cepsilon%20%28t_i%2Bb_j%29%2B%5Cepsilon_%7Bij%7D%5Cquad%5Ctext%7Bversus%7D%5Cquad%5Cmathcal%7BM%7D_0%3A%5C%20Y_%7Bij%7D%3D%5Cmu%2B%5Csigma_%5Cepsilon%20b_j%2B%5Cepsilon_%7Bij%7D%2C" title="\mathcal{M}_1: Y_{ij}=\mu+\sigma_\epsilon (t_i+b_j)+\epsilon_{ij}\quad\text{versus}\quad\mathcal{M}_0: Y_{ij}=\mu+\sigma_\epsilon b_j+\epsilon_{ij},"></embed></p>
 <p><embed src="https://latex.codecogs.com/png.latex?%5Cepsilon_%7Bij%7D%5Coverset%7B%5Ctext%7Bi.i.d.%7D%7D%7B%5Csim%7D%5Cmathcal%7BN%7D%280%2C%5Csigma_%5Cepsilon%5E2%29%2C%20%5C%20i%3D1%2C%5Cdotsb%2Ca%3B%5C%20j%3D1%2C%5Cdotsb%2Cn%2C" title="\epsilon_{ij}\overset{\text{i.i.d.}}{\sim}\mathcal{N}(0,\sigma_\epsilon^2), i=1,\dotsb,a; j=1,\dotsb,n,"></embed></p>
@@ -111,7 +128,7 @@
 <p>The within-group sum-of-squares (SS) is <embed src="https://latex.codecogs.com/png.latex?%5Ctextit%7BSS%7D_W%3D%5Csum_%7Bi%3D1%7D%5E%7Ba%7D%5Csum_%7Bj%3D1%7D%5E%7Bb%7D%5Cleft%28Y_%7Bij%7D-M_%7Bi%5Ccenterdot%7D%5Cright%29%5E2" title="\textit{SS}_W=\sum_{i=1}^{a}\sum_{j=1}^{b}\left(Y_{ij}-M_{i\centerdot}\right)^2"></embed>.</p>
 <p>The interaction SS is <embed src="https://latex.codecogs.com/png.latex?%5Ctextit%7BSS%7D_%7BS%5Ctimes%20C%7D%3D%5Csum_%7Bi%3D1%7D%5E%7Ba%7D%5Csum_%7Bj%3D1%7D%5E%7Bn%7D%5Cleft%28Y_%7Bij%7D-%28M_%7B%5Ccenterdot%20j%7D-M%29-M_%7Bi%5Ccenterdot%7D%5Cright%29%5E2" title="\textit{SS}_{S\times C}=\sum_{i=1}^{a}\sum_{j=1}^{n}\left(Y_{ij}-(M_{\centerdot j}-M)-M_{i\centerdot}\right)^2"></embed>.</p>
 <p><embed src="https://latex.codecogs.com/png.latex?t%5E%2A" title="t^*"></embed> refers to the two-sided <embed src="https://latex.codecogs.com/png.latex?t" title="t"></embed>-distribution critical value.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/zhengxiaoUVic/rmBayes">rmBayes</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">recall.long</span><span class="op">)</span>
@@ -124,12 +141,12 @@
 <p>Heck (2019) proposed modifying the conditional within-subjects Bayesian interval to account for uncertainty and shrinkage in the estimated random effects. He derived a modification by applying the HDI equation in Method 0 for the within-subjects Bayesian interval at each iteration of a Markov chain Monte Carlo (MCMC) sampling algorithm and then taking the average interval across posterior samples. Priors used in Method 4 are the Jeffreys prior for the condition means and residual variance, a <embed src="https://latex.codecogs.com/png.latex?g" title="g"></embed>-prior structure for standardized subject-specific random effects (i.e., <embed src="https://latex.codecogs.com/png.latex?b_j%5Cmid%20g_b%5Coverset%7B%5Ctext%7Bind.%7D%7D%7B%5Csim%7D%5Cmathcal%7BN%7D%280%2Cg_b%29" title="b_j\mid g_b\overset{\text{ind.}}{\sim}\mathcal{N}(0,g_b)"></embed>), and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the <embed src="https://latex.codecogs.com/png.latex?g" title="g"></embed>-priors (i.e., <embed src="https://latex.codecogs.com/png.latex?g_b%5Csim%5Ctext%7BScale-inv-%7D%5Cchi%5E2%281%2Ch_b%5E2%29" title="g_b\sim\text{Scale-inv-}\chi^2(1,h_b^2)"></embed>).</p>
 <p>Method 4 constructs the HDI as</p>
 <p><embed src="https://latex.codecogs.com/png.latex?%5Ctext%7BHDI%7D%3D%5Cmathbb%7BE%7D%5Cleft%5B%5Cmu_%7Bi%7D%5Cpm%5Cfrac%7B%5Csigma_%7B%5Cepsilon%7D%7D%7B%5Csqrt%7Bn%7D%7D%5Ccdot%20t_%7B1-%5Cfrac%7B%5Calpha%7D%7B2%7D%2C%5C%20a%28n-1%29%7D%5E%7B%2A%7D%5Cmid%5Ctext%7BData%7D%5Cright%5D." title="\text{HDI}=\mathbb{E}\left[\mu_{i}\pm\frac{\sigma_{\epsilon}}{\sqrt{n}}\cdot t_{1-\frac{\alpha}{2}, a(n-1)}^{*}\mid\text{Data}\right]."></embed></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">4</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 <p>To assess the robustness of HDI results with respect to the choice of a prior distribution for the standard deviation of the subject-specific random effects in the within-subjects case, two additional priors are considered: uniform and half-Cauchy (<embed src="https://latex.codecogs.com/png.latex?%5Csigma_%5Cepsilon%5Csqrt%7Bg_b%7D%5Csim%5Ctext%7BUnif%7D%280%2C1%29" title="\sigma_\epsilon\sqrt{g_b}\sim\text{Unif}(0,1)"></embed> or <embed src="https://latex.codecogs.com/png.latex?%5Csigma_%5Cepsilon%5Csqrt%7Bg_b%7D%5Csim%5Ctext%7BHalf-Cauchy%7D%280%2C1%29" title="\sigma_\epsilon\sqrt{g_b}\sim\text{Half-Cauchy}(0,1)"></embed>) for Methods 5 and 6, respectively.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">5</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">6</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="methods-1-default-and-2-3" class="section level2">
@@ -137,19 +154,19 @@
 <a href="#methods-1-default-and-2-3" class="anchor"></a>Methods 1 (Default) and 2-3</h2>
 <p>Methods 0 and 4-6 arbitrarily assume improper uniform priors for the condition means. In this work, we expanded the space of possible priors by appling the HDI equation in Method 0 to derive the newly proposed intervals from MCMC sampling, but assuming default <embed src="https://latex.codecogs.com/png.latex?g" title="g"></embed>-priors for standardized treatment effects. In other words, Method 1 uses the Jeffreys prior for the overall mean (rather than the condition means), i.e.,</p>
 <p><embed src="https://latex.codecogs.com/png.latex?%5Cpi%28%5Cmu%2C%5Csigma_%5Cepsilon%5E2%29%5Cvarpropto%5Cfrac%7B1%7D%7B%5Csigma_%5Cepsilon%5E2%7D." title="\pi(\mu,\sigma_\epsilon^2)\varpropto\frac{1}{\sigma_\epsilon^2}."></embed></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 <p>Similar to Methods 5 and 6, two additional priors are considered: uniform and half-Cauchy (<embed src="https://latex.codecogs.com/png.latex?%5Csigma_%5Cepsilon%5Csqrt%7Bg_b%7D%5Csim%5Ctext%7BUnif%7D%280%2C1%29" title="\sigma_\epsilon\sqrt{g_b}\sim\text{Unif}(0,1)"></embed> or <embed src="https://latex.codecogs.com/png.latex?%5Csigma_%5Cepsilon%5Csqrt%7Bg_b%7D%5Csim%5Ctext%7BHalf-Cauchy%7D%280%2C1%29" title="\sigma_\epsilon\sqrt{g_b}\sim\text{Half-Cauchy}(0,1)"></embed>) for Methods 2 and 3, respectively, for the standard deviation of the subject-specific random effects in the within-subjects case.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">2</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">3</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="standard-hdi" class="section level2">
 <h2 class="hasAnchor">
 <a href="#standard-hdi" class="anchor"></a>Standard HDI</h2>
 <p>MCMC sampling of condition means <embed src="https://latex.codecogs.com/png.latex?%5Cmu_i" title="\mu_i"></embed> can also be used to obtain the standard HDI, which, unlike Methods 0-6, does not remove the between-subjects variability that is not of interest in within-subjects designs. This method assumes the Jeffreys prior for the overall mean and residual variance, a <embed src="https://latex.codecogs.com/png.latex?g" title="g"></embed>-prior structure for standardized treatment effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the <embed src="https://latex.codecogs.com/png.latex?g" title="g"></embed>-priors.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, design <span class="op">=</span> <span class="st">"between"</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="random-versus-fixed-effects" class="section level2">
@@ -160,17 +177,17 @@
 <p><embed src="https://latex.codecogs.com/png.latex?%28t_1%5E%7B%5Cstar%7D%2C%5Cdotsb%2Ct_%7Ba-1%7D%5E%7B%5Cstar%7D%29%3D%28t_1%2C%5Cdotsb%2Ct_%7Ba%7D%29%5Ccdot%5Cmathrm%7BQ%7D%2C" title="(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathrm{Q},"></embed></p>
 <p><embed src="https://latex.codecogs.com/png.latex?%5Ctext%7Band%20%7D%20%5Cmathrm%7BI_a%7D-a%5E%7B-1%7D%5Cmathrm%7BJ_a%7D%3D%5Cmathrm%7BQ%7D%5Ccdot%5Cmathrm%7BI_%7Ba-1%7D%7D%5Ccdot%5Cmathrm%7BQ%5E%7B%5Ctop%7D%7D%2C" title="\text{and } \mathrm{I_a}-a^{-1}\mathrm{J_a}=\mathrm{Q}\cdot\mathrm{I_{a-1}}\cdot\mathrm{Q^{\top}},"></embed></p>
 <p>where <embed src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BI_%7Ba%7D%7D" title="\mathrm{I_{a}}"></embed> is the identity matrix of size <embed src="https://latex.codecogs.com/png.latex?a" title="a"></embed>, <embed src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BJ_a%7D" title="\mathrm{J_a}"></embed> is the all-ones matrix of size <embed src="https://latex.codecogs.com/png.latex?a" title="a"></embed>, is an <embed src="https://latex.codecogs.com/png.latex?a%5Ctimes%20%28a-1%29" title="a\times (a-1)"></embed> matrix of the <embed src="https://latex.codecogs.com/png.latex?a-1" title="a-1"></embed> eigenvectors of unit length corresponding to the nonzero eigenvalues of <embed src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BI_a%7D-a%5E%7B-1%7D%5Cmathrm%7BJ_a%7D" title="\mathrm{I_a}-a^{-1}\mathrm{J_a}"></embed>, and <embed src="https://latex.codecogs.com/png.latex?%28t_1%2C%5Cdotsb%2Ct_%7Ba%7D%29" title="(t_1,\dotsb,t_{a})"></embed> is the row vector.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, treat <span class="op">=</span> <span class="st">"fixed"</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="heteroscedasticity" class="section level2">
 <h2 class="hasAnchor">
 <a href="#heteroscedasticity" class="anchor"></a>Heteroscedasticity</h2>
 <p>When the homogeneity of variance does not hold, the resulting HDI widths for conditions are unequal. Two approaches are currently provided for the heteroscedastic within-subjects data: Implementing the approach developed by Nathoo et al. (2018, p. 5);</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, method <span class="op">=</span> <span class="fl">0</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p>Or, implementing the heteroscedastic standard HDI method on the subject-centering transformed data (subtracting from the original response a corresponding subject mean minus the overall mean). If a method option other than <code>0</code> or <code>1</code> is used with <code>var.equal=FALSE</code>, a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/rmHDI.html">rmHDI</a></span><span class="op">(</span><span class="va">recall.long</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="references" class="section level2">
@@ -217,6 +234,7 @@
 <li><a href="https://travis-ci.com/github/zhengxiaoUVic/rmBayes"><img src="https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes"><img src="https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/zhengxiaoUVic/rmBayes?branch=main"><img src="https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/zhengxiaoUVic/rmBayes/actions"><img src="https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 </div>
