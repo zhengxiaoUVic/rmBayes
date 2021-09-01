@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
+status](https://travis-ci.com/github/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 [![Codecov test
@@ -26,12 +26,10 @@ presented in Heck (2019).
 
 ## Installation
 
-You can install the released version of rmBayes from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("rmBayes")
-```
+| Type        | Source                             | Command                                            |
+|-------------|------------------------------------|----------------------------------------------------|
+| Release     | [CRAN](https://CRAN.R-project.org) | `install.packages("rmBayes")`                      |
+| Development | GitHub                             | `remotes::install_github("zhengxiaoUVic/rmBayes")` |
 
 If errors occur, you may need to configure your R installation to be
 able to compile C++ code. Follow the link below for your respective
