@@ -12,3 +12,4 @@
 ^README\.md$
 ^\.git$
 ^appveyor\.yml$
+^codecov\.yml$

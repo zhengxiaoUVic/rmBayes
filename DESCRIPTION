@@ -47,3 +47,5 @@ LinkingTo:
 SystemRequirements: GNU make
 URL: https://github.com/zhengxiaoUVic/rmBayes
 BugReports: https://github.com/zhengxiaoUVic/rmBayes/issues
+Suggests: 
+    covr
