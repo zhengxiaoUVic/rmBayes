@@ -1,3 +1,16 @@
+# Having only tested on macOS, because Stan results will only be exactly reproducible
+#  if all of the following components are identical:
+# Stan version
+# Stan interface (RStan, PyStan, CmdStan) and version, plus version of interface language (R, Python, shell)
+# versions of included libraries (Boost and Eigen)
+# operating system version
+# computer hardware including CPU, motherboard and memory
+# C++ compiler, including version, compiler flags, and linked libraries
+# same configuration of call to Stan, including random seed, chain ID, initialization and data
+
+skip_on_cran()
+skip_on_os(c("windows", "linux", "solaris"))
+
 test_that("Within-subjects HDI widths (for a heteroscedastic case)", {
   HDI <- rmHDI(data.wide = recall.wide, seed = 277, var.equal = FALSE)
   width <- unname(round(HDI$width, 5))
