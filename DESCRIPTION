@@ -48,4 +48,6 @@ SystemRequirements: GNU make
 URL: https://github.com/zhengxiaoUVic/rmBayes
 BugReports: https://github.com/zhengxiaoUVic/rmBayes/issues
 Suggests: 
+    testthat (>= 3.0.0),
     covr
+Config/testthat/edition: 3
