@@ -2,7 +2,7 @@
 #'
 #'For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs,
 #'this function provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors.
-#'The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs
+#'The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs, as
 #'proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
 #'
 #'We consider three credible intervals:

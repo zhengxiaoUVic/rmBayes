@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
 
-For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs, this Stan-based R package provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors. The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
+For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs, this Stan-based R package provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors. The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs, as proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
 
 
 ## Installation
@@ -34,7 +34,7 @@ Type | Source | Command
 Release | [CRAN](https://CRAN.R-project.org) | `install.packages("rmBayes")`
 Development | GitHub | `remotes::install_github("zhengxiaoUVic/rmBayes")`
 
-If errors occur, you may need to configure your R installation to be able to compile C++ code. Follow the link below for your respective operating system for more instructions (Stan Development Team, 2020):
+Prior to installing the package, you need to configure your R installation to be able to compile C++ code. Follow the link below for your respective operating system for more instructions (Stan Development Team, 2020):
 
 * [Mac - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac)
 * [Windows - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows)
@@ -42,8 +42,6 @@ If errors occur, you may need to configure your R installation to be able to com
 
 
 ## Statistical Model
-
-<span style="color:red">Note</span>: If you see the LaTeX equations not getting rendered properly, please try another web browser such as Firefox.
 
 When the homogeneity of variance holds,
 a linear mixed-effects model $\mathcal{M}_1$ for the mean response in a one-way within-subjects design is
@@ -56,7 +54,7 @@ where $Y_{ij}$ represents the mean response for the $j$th
 subject under the $i$th level of the experimental manipulation;
 $\mu$ is the overall mean, $\tau_i = \sigma_\epsilon t_i$ is the $i$th level of the experimental manipulation;
 $\mu_i = \mu + \tau_i$, for the means model, is the $i$th condition mean;
-$b_j$ is the standardized subject-specific random effects;
+$b_j$ are the standardized subject-specific random effects;
 $a$ is the number of levels; $n$ is the number of subjects.
 The effects $t_i$ and $b_j$ are both standardized relative to the standard deviation of the error $\sigma_\epsilon$ and become dimensionless (Rouder, Morey, Speckman, & Province, 2012).
 
@@ -149,7 +147,7 @@ $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathrm{Q},$
 
 $\text{and } \mathrm{I_a}-a^{-1}\mathrm{J_a}=\mathrm{Q}\cdot\mathrm{I_{a-1}}\cdot\mathrm{Q^{\top}},$
 
-where $\mathrm{I_{a}}$ is the identity matrix of size $a$, $\mathrm{J_a}$ is the all-ones matrix of size $a$, \mathrm{Q} is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathrm{I_a}-a^{-1}\mathrm{J_a}$, and $(t_1,\dotsb,t_{a})$ is the row vector.
+where $\mathrm{I_{a}}$ is the identity matrix of size $a$, $\mathrm{J_a}$ is the all-ones matrix of size $a$, $\mathrm{Q}$ is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathrm{I_a}-a^{-1}\mathrm{J_a}$, and $(t_1,\dotsb,t_{a})$ is the row vector.
 
 ``` r
 rmHDI(recall.long, treat = "fixed", seed = 277)
@@ -163,7 +161,7 @@ When the homogeneity of variance does not hold, the resulting HDI widths for con
 rmHDI(recall.long, method = 0, var.equal = FALSE)
 ```
 
-Or, implementing the heteroscedastic standard HDI method on the subject-centering transformed data (subtracting from the original response a corresponding subject mean
+Or, implementing the heteroscedastic standard HDI method on the subject-centering transformed data (subtracting from the original response the corresponding subject mean
 minus the overall mean). If a method option other than `0` or `1` is used with `var.equal=FALSE`, a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.
 
 ``` r

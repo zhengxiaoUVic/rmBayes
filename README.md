@@ -20,7 +20,7 @@ provides multiple methods to construct the credible intervals for
 condition means, with each method based on different sets of priors. The
 emphasis is on the calculation of intervals that remove the
 between-subjects variability that is a nuisance in within-subjects
-designs proposed in Loftus and Masson (1994), the Bayesian analog
+designs, as proposed in Loftus and Masson (1994), the Bayesian analog
 proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation
 presented in Heck (2019).
 
@@ -31,9 +31,10 @@ presented in Heck (2019).
 | Release     | [CRAN](https://CRAN.R-project.org) | `install.packages("rmBayes")`                      |
 | Development | GitHub                             | `remotes::install_github("zhengxiaoUVic/rmBayes")` |
 
-If errors occur, you may need to configure your R installation to be
-able to compile C++ code. Follow the link below for your respective
-operating system for more instructions (Stan Development Team, 2020):
+Prior to installing the package, you need to configure your R
+installation to be able to compile C++ code. Follow the link below for
+your respective operating system for more instructions (Stan Development
+Team, 2020):
 
 -   [Mac - Configuring C++
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac)
@@ -43,10 +44,6 @@ operating system for more instructions (Stan Development Team, 2020):
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
 ## Statistical Model
-
-<span style="color:red">Note</span>: If you see the LaTeX equations not
-getting rendered properly, please try another web browser such as
-Firefox.
 
 When the homogeneity of variance holds, a linear mixed-effects model
 ![\\mathcal{M}\_1](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BM%7D_1 "\mathcal{M}_1")
@@ -70,7 +67,7 @@ experimental manipulation;
 ![\\mu\_i = \\mu + \\tau\_i](https://latex.codecogs.com/svg.latex?%5Cmu_i%20%3D%20%5Cmu%20%2B%20%5Ctau_i "\mu_i = \mu + \tau_i"),
 for the means model, is the
 ![i](https://latex.codecogs.com/svg.latex?i "i")th condition mean;
-![b\_j](https://latex.codecogs.com/svg.latex?b_j "b_j") is the
+![b\_j](https://latex.codecogs.com/svg.latex?b_j "b_j") are the
 standardized subject-specific random effects;
 ![a](https://latex.codecogs.com/svg.latex?a "a") is the number of
 levels; ![n](https://latex.codecogs.com/svg.latex?n "n") is the number
@@ -236,7 +233,9 @@ is the identity matrix of size
 ![a](https://latex.codecogs.com/svg.latex?a "a"),
 ![\\mathrm{J\_a}](https://latex.codecogs.com/svg.latex?%5Cmathrm%7BJ_a%7D "\mathrm{J_a}")
 is the all-ones matrix of size
-![a](https://latex.codecogs.com/svg.latex?a "a"), is an
+![a](https://latex.codecogs.com/svg.latex?a "a"),
+![\\mathrm{Q}](https://latex.codecogs.com/svg.latex?%5Cmathrm%7BQ%7D "\mathrm{Q}")
+is an
 ![a\\times (a-1)](https://latex.codecogs.com/svg.latex?a%5Ctimes%20%28a-1%29 "a\times (a-1)")
 matrix of the ![a-1](https://latex.codecogs.com/svg.latex?a-1 "a-1")
 eigenvectors of unit length corresponding to the nonzero eigenvalues of
@@ -262,7 +261,7 @@ rmHDI(recall.long, method = 0, var.equal = FALSE)
 
 Or, implementing the heteroscedastic standard HDI method on the
 subject-centering transformed data (subtracting from the original
-response a corresponding subject mean minus the overall mean). If a
+response the corresponding subject mean minus the overall mean). If a
 method option other than `0` or `1` is used with `var.equal=FALSE`, a
 pooled estimate of variability will be used just as in the homoscedastic
 case, and a warning message will be returned.
