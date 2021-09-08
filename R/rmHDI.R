@@ -363,7 +363,8 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
                       ncol = 2, byrow = TRUE)
     }
 
-    else if (method == 6 && design == "within") {
+    else {
+      #else if (method == 6 && design == "within")
       if (treat == "fixed" || ht != 1 || hb != 1) {
         warning("Method 6 does not require specifying the 'treat', 'ht', and 'hb' arguments. See ?rmHDI for details.")
       }
@@ -373,7 +374,7 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
                               warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
                       ncol = 2, byrow = TRUE)
-    } else {stop("No such method.")}
+    }
 
 
   } else { #heteroscedastic cases, !var.equal
@@ -409,14 +410,15 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
                       ncol = 2, byrow = TRUE)
 
-    } else if (design == "between") { #standard HDI
+    } else { #standard HDI
+      #else if (design == "between")
       mcmc <- rstan::sampling(stanmodels$HDIstandardHetero, data = standata,
                               pars = c("mu_t", "sigma"), refresh = 0,
                               warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "mu_t", probs=c((1 - cred) / 2, (1 + cred) / 2))$summary[,4:5],
                       ncol = 2) #IT IS byrow = FALSE !!
 
-    } else {stop("No such method.")}
+    }
   }
 
   rownames(mcmc2) <- colnames(data)

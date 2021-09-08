@@ -153,12 +153,12 @@ test_that("Error handling - single level", {
 })
 
 test_that("Warning 1", {
-  expect_warning(rmHDI(recall.long, design = "between", seed = "277", method = 2),
+  expect_warning(rmHDI(recall.long, design = "between", seed = 277, method = 2),
                  "Standard highest-density intervals method does not require specifying")
 })
 
 test_that("Warning 2", {
-  expect_warning(rmHDI(recall.long, design = "between", seed = "277", method = 0),
+  expect_warning(rmHDI(recall.long, design = "between", seed = 277, method = 0),
                  "Within-subjects highest-density intervals are constructed by method 0, which does not require specifying")
 })
 
@@ -180,4 +180,12 @@ test_that("Warning 6", {
 test_that("Warning 7", {
   expect_warning(rmHDI(recall.long, method = 6, seed = "277", hb = 2),
                  "Method 6 does not require specifying")
+})
+
+test_that("Diagnostics of within-subjects HDI", {
+  expect_equal(length(rmHDI(data.wide = recall.wide, seed = 277, diagnostics = TRUE)), 4)
+})
+
+test_that("Diagnostics of standard HDI", {
+  expect_equal(length(rmHDI(data.wide = recall.wide, seed = 277, design = "between", diagnostics = TRUE)), 4)
 })
