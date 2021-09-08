@@ -2,13 +2,3 @@
 .Rproj.user
 .Rhistory
 .RData
-
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.rds
-*.tar.gz
-*.tgz

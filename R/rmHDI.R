@@ -232,10 +232,10 @@ rmHDI <- function(data = NULL, whichSubject = "Subject", whichLevel = "Level", w
     warning("Within-subjects highest-density intervals are constructed by method 0, which does not require specifying the 'design', 'treat', 'ht', 'hb', and 'diagnostics' arguments. See ?rmHDI for details.")
   }
   if(!var.equal && design == "within" && method %in% 2:6) {
-    var.equal = TRUE
     #Within-subjects highest-density intervals (for a heteroscedastic case) are currently constructed by implementing the standard highest-density intervals method on the subject-centering transformed data.
     warning(paste("A method option other than 0 or 1 is used with var.equal = FALSE and design = 'within'.
 Thus, a pooled estimate of variability will be used just as method =", method, "in the homoscedastic case."))
+    var.equal = TRUE
   }
 
   if (treat == "fixed" && var.equal && (method %in% 1:3 ||
@@ -270,28 +270,19 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
       if (any(s == 0)) {stop("Invalid input: Data may contain a missing column.")}
       Num <- sum(s)
       dataV <- as.vector(data[!is.na(data)])
-      if (treat == "fixed") {
-        standata <- list("N" = Num, "C" = C, "Y" = dataV, "s" = s, "Q" = Q, "ht" = ht)
-        mcmc <- rstan::sampling(stanmodels$HDIstandardFixed, data = standata,
-                                pars = c("mu_t", "sigma"), refresh = 0,
-                                warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
-      } else { #treat == "random"
+      if (treat == "random") {
         standata <- list("N" = Num, "C" = C, "Y" = dataV, "s" = s, "ht" = ht)
         mcmc <- rstan::sampling(stanmodels$HDIstandard, data = standata,
+                                pars = c("mu_t", "sigma"), refresh = 0,
+                                warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
+      } else { #treat == "fixed"
+        standata <- list("N" = Num, "C" = C, "Y" = dataV, "s" = s, "Q" = Q, "ht" = ht)
+        mcmc <- rstan::sampling(stanmodels$HDIstandardFixed, data = standata,
                                 pars = c("mu_t", "sigma"), refresh = 0,
                                 warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       }
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "mu_t", probs=c((1 - cred) / 2, (1 + cred) / 2))$summary[,4:5],
                       ncol = 2) #IT IS byrow = FALSE !!
-    }
-
-    else if (method == 1 && treat == "fixed" && design == "within") { #using the default priors in Rouder et al. (2012)
-      standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit, "Q" = Q, "ht" = ht, "hb" = hb)
-      mcmc <- rstan::sampling(stanmodels$HDIdFixed, data = standata,
-                              pars = c("hdi", "sigma"), refresh = 0,
-                              warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
-      mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
-                      ncol = 2, byrow = TRUE)
     }
 
     else if (method == 1 && treat == "random" && design == "within") { #using the default priors in Rouder et al. (2012)
@@ -303,9 +294,9 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
                       ncol = 2, byrow = TRUE)
     }
 
-    else if (method == 2 && treat == "fixed" && design == "within") {
-      standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit, "Q" = Q)
-      mcmc <- rstan::sampling(stanmodels$HDIdUnifFixed, data = standata,
+    else if (method == 1 && treat == "fixed" && design == "within") { #using the default priors in Rouder et al. (2012)
+      standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit, "Q" = Q, "ht" = ht, "hb" = hb)
+      mcmc <- rstan::sampling(stanmodels$HDIdFixed, data = standata,
                               pars = c("hdi", "sigma"), refresh = 0,
                               warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
@@ -321,9 +312,9 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
                       ncol = 2, byrow = TRUE)
     }
 
-    else if (method == 3 && treat == "fixed" && design == "within") {
+    else if (method == 2 && treat == "fixed" && design == "within") {
       standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit, "Q" = Q)
-      mcmc <- rstan::sampling(stanmodels$HDIdCauchyFixed, data = standata,
+      mcmc <- rstan::sampling(stanmodels$HDIdUnifFixed, data = standata,
                               pars = c("hdi", "sigma"), refresh = 0,
                               warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
@@ -333,6 +324,15 @@ Thus, a pooled estimate of variability will be used just as method =", method, "
     else if (method == 3 && treat == "random" && design == "within") {
       standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit)
       mcmc <- rstan::sampling(stanmodels$HDIdCauchy, data = standata,
+                              pars = c("hdi", "sigma"), refresh = 0,
+                              warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
+      mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
+                      ncol = 2, byrow = TRUE)
+    }
+
+    else if (method == 3 && treat == "fixed" && design == "within") {
+      standata <- list("N" = N, "C" = C, "Y" = data, "tcrit" = tcrit, "Q" = Q)
+      mcmc <- rstan::sampling(stanmodels$HDIdCauchyFixed, data = standata,
                               pars = c("hdi", "sigma"), refresh = 0,
                               warmup = warmup, iter = warmup + iter, chains = chains, seed = seed, ...)
       mcmc2 <- matrix(rstan::summary(mcmc, pars = "hdi")$summary[,"mean"],
