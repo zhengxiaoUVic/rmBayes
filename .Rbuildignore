@@ -9,7 +9,6 @@
 ^\.dll$
 ^\.Rhistory$
 ^README\.Rmd$
-^README\.md$
 ^\.git$
 ^appveyor\.yml$
 ^codecov\.yml$
