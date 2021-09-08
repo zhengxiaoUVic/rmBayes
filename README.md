@@ -43,6 +43,9 @@ Team, 2020):
 -   [Linux - Configuring C++
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
+Installation time of the source package is about 17 minutes (Stan models
+need to be compiled).
+
 ## Statistical Model
 
 When the homogeneity of variance holds, a linear mixed-effects model
