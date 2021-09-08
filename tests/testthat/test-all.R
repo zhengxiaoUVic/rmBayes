@@ -1,7 +1,7 @@
 # roughly 21 minutes to run on 672 scenarios
 
 skip_on_cran()
-skip_on_ci()
+skip_on_travis()
 options(warn=-1)
 
 test_that("executable", {
