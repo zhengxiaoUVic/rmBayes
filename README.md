@@ -43,8 +43,15 @@ Team, 2020):
 -   [Linux - Configuring C++
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
-Installation time of the source package is about 17 minutes (Stan models
-need to be compiled).
+Installation time of the source package is about 20 minutes (Stan models
+need to be compiled). If you have R version 4.1.1 on Mac, Windows, or
+Ubuntu, you can directly install the binary package by calling
+
+``` r
+install.packages("rmBayes", repos = "https://github.com/zhengxiaoUVic/rmBayes/tree/main/drat", type = "binary")
+
+devtools::install_deps("rmBayes")
+```
 
 ## Statistical Model
 
