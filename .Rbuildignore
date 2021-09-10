@@ -4,9 +4,6 @@
 ^data-raw$
 ^\.travis\.yml$
 ^\.DS_Store$
-^\.o$
-^\.so$
-^\.dll$
 ^\.Rhistory$
 ^README\.Rmd$
 ^\.git$
