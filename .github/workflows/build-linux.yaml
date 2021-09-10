@@ -2,7 +2,7 @@
 # https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
 on: workflow_dispatch
 
-name: Package builder for Ubuntu
+name: Package builder
 
 jobs:
   binary:
@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest,   r: '3.4'}
+          - {os: ubuntu-latest,   r: '3.6'}
 
 
     env:
