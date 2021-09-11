@@ -48,7 +48,8 @@ Windows, or Ubuntu, you can find the binary packages
 install the binary package by calling
 
 ``` r
-install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary", dependencies = TRUE)
+install.packages("rstan")
+install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary")
 ```
 
 ## Statistical Model
