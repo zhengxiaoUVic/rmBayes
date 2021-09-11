@@ -14,6 +14,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - {os: ubuntu-latest,   r: '4.1'}
+          - {os: ubuntu-latest,   r: '4.0'}
           - {os: ubuntu-latest,   r: '3.6'}
           - {os: ubuntu-latest,   r: '3.5'}
           - {os: ubuntu-latest,   r: '3.4'}

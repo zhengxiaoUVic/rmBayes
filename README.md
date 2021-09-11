@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/zhengxiaoUVic/rmBayes.svg?branch=main)](https://travis-ci.com/github/zhengxiaoUVic/rmBayes)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
 [![Codecov test
@@ -44,9 +42,14 @@ Team, 2020):
     Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
 Installation time of the source package is about 11 minutes (Stan models
-need to be compiled). If you have R version 4.0 or later on Mac,
+need to be compiled). If you have R version 4.0.0 or later on Mac,
 Windows, or Ubuntu, you can find the binary packages
-[HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/).
+[HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/). Or, directly
+install the binary package by calling
+
+``` r
+install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary", dependencies = TRUE)
+```
 
 ## Statistical Model
 
