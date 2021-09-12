@@ -21,7 +21,6 @@ jobs:
           - {os: macOS-latest,   r: '4.0.3'}
           - {os: macOS-latest,   r: '4.0.2'}
           - {os: macOS-latest,   r: '4.0.1'}
-          - {os: macOS-latest,   r: '4.0.0'}
           - {os: windows-latest,   r: '4.1.1'}
           - {os: windows-latest,   r: '4.1.0'}
           - {os: windows-latest,   r: '4.0.5'}
@@ -29,7 +28,6 @@ jobs:
           - {os: windows-latest,   r: '4.0.3'}
           - {os: windows-latest,   r: '4.0.2'}
           - {os: windows-latest,   r: '4.0.1'}
-          - {os: windows-latest,   r: '4.0.0'}
 
 
     env:
