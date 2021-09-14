@@ -22,3 +22,7 @@ This is a Stan-based R package.
 > checking for GNU extensions in Makefiles ... NOTE
 GNU make is a SystemRequirements.
 ```
+
+## Downstream dependencies
+
+There are currently no downstream dependencies for this package.
