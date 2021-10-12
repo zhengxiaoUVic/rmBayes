@@ -42,6 +42,9 @@ R 4.0.1 or later is recommended. Prior to installing the package, you need to co
 Installation time of the source package is about 11 minutes (Stan models need to be compiled). If you have R version 4.0.1 or later on Mac, Windows, or Ubuntu, you can find the binary packages [HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/). Or, directly install the binary package by calling
 
 ``` r
+installed.packages("rmBayes", type = "binary")
+
+#Or, install from GitHub
 install.packages("rstan")
 install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary")
 ```

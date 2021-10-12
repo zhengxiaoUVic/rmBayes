@@ -1,3 +1,9 @@
+## CRAN submission
+
+* Submitted: September 14, 2021.
+* Accepted: September 15, 2021.
+For future submissions/updates: If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form e.g. authors (year) <doi:...>
+
 ## Test environments
 
 * local: darwin18.6.0
