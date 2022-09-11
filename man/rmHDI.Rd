@@ -47,35 +47,35 @@ If both \code{data} and \code{data.wide} are specified, the credible intervals a
 \item{chains}{A positive integer specifying the number of Markov chains. The default is 4.}
 
 \item{method}{A positive integer in \code{0:6} specifying which method is used to construct within-subjects HDIs (see Details).
-\code{method=0} implements the approach developed by Nathoo et al. (2018).
-\code{method=4} implements the approach by Heck (2019).
-\code{method=5} implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
-\code{method=6} implements the approach by Heck (2019), but using the standard half-Cauchy prior distribution for the standard deviation of subject-specific random effects.
-\code{method=1} (default) implements the approach by Heck (2019), but using the Jeffreys prior for the overall mean rather than the condition means;
+"method=0" implements the approach developed by Nathoo et al. (2018).
+"method=4" implements the approach by Heck (2019).
+"method=5" implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
+"method=6" implements the approach by Heck (2019), but using the standard half-Cauchy prior distribution for the standard deviation of subject-specific random effects.
+"method=1" (default) implements the approach by Heck (2019), but using the Jeffreys prior for the overall mean rather than the condition means;
 the hierarchical specification regarding the \eqn{g}-prior for the standardized subject-specific random effects is discussed in Rouder et al. (2012, p. 361-362).
 With the Jeffreys prior for the overall mean and residual variance,
-\code{method=2} uses the standard uniform prior, and \code{method=3} uses the standard half-Cauchy prior for the standard deviation of random effects.
+"method=2" uses the standard uniform prior, and "method=3" uses the standard half-Cauchy prior for the standard deviation of random effects.
 For the computation of the standard HDI, see the \code{design} argument below.}
 
 \item{var.equal}{A logical variable indicating whether to treat the variance of the response within each condition (level of the experimental manipulation) as being equal.
 If \code{TRUE} (default), the homogeneity of variance holds, and a common variance across conditions is assumed.
 Otherwise, \code{FALSE} will generate unequal interval widths for conditions.
-Two approaches are currently provided for the heteroscedastic within-subjects data: \code{method=0} implements the approach developed by Nathoo et al. (2018, p. 5);
-\code{method=1} (default method if \code{var.equal=FALSE}) implements the heteroscedastic standard HDI method on the subject-centering transformed data.
-If a \code{method} option other than \code{0} or \code{1} is used with \code{var.equal=FALSE},
+Two approaches are currently provided for the heteroscedastic within-subjects data: "method=0" implements the approach developed by Nathoo et al. (2018, p. 5);
+"method=1" (default method if "var.equal=FALSE") implements the heteroscedastic standard HDI method on the subject-centering transformed data.
+If a \code{method} option other than \code{0} or \code{1} is used with "var.equal=FALSE",
 a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.}
 
 \item{design}{A character string specifying the experimental design.
 If \code{"within"} (default), construct the within-subjects HDIs based on the given \code{method} in \code{0:6}.
-If \code{"between"}, construct the standard HDIs using the priors in \code{method=1} (but not removing the between-subjects variability).}
+If \code{"between"}, construct the standard HDIs using the priors in "method=1" (but not removing the between-subjects variability).}
 
 \item{treat}{A character string specifying the type of condition effects when \code{method} in \code{1:3}.
 If \code{"fixed"}, treat the condition effects as fixed effects through the reduced parametrization proposed by Rouder et al. (2012, p. 363).
 If \code{"random"} (default), treat the condition effects as random effects.}
 
-\item{ht}{A positive real number specifying the prior scale for standardized condition effects when \code{method=1} (see Details). The default is 0.5 when \code{treat="fixed"} and 1 when \code{treat="random"}.}
+\item{ht}{A positive real number specifying the prior scale for standardized condition effects when "method=1" (see Details). The default is 0.5 when \code{treat="fixed"} and 1 when \code{treat="random"}.}
 
-\item{hb}{A positive real number specifying the prior scale for standardized subject-specific random effects when \code{method=1} or \code{method=4} (see Details). The default is 1.}
+\item{hb}{A positive real number specifying the prior scale for standardized subject-specific random effects when "method=1" or "method=4" (see Details). The default is 1.}
 
 \item{seed}{The seed for random number generation.}
 
@@ -130,29 +130,29 @@ subject under the \eqn{i}-th level of the experimental manipulation;
 \eqn{\epsilon_{ij}} are independent and identically distributed.
 The effects \eqn{t_i} and \eqn{b_j} are both standardized relative to the standard deviation of the error \eqn{\sigma_\epsilon} and become dimensionless (Rouder et al., 2012).
 
-An assumption articulated in \code{method=0} is the Jeffreys prior for the condition means \eqn{\mu_i} and residual variance \eqn{\sigma_\epsilon^2} (Nathoo et al., 2018).
+An assumption articulated in "method=0" is the Jeffreys prior for the condition means \eqn{\mu_i} and residual variance \eqn{\sigma_\epsilon^2} (Nathoo et al., 2018).
 
-Priors used in \code{method=1} are the Jeffreys prior for the overall mean \eqn{\mu} and residual variance,
+Priors used in "method=1" are the Jeffreys prior for the overall mean \eqn{\mu} and residual variance,
 a \eqn{g}-prior structure for standardized effects,
 and independent scaled inverse-chi-square priors with one degree of freedom for
 the scale hyperparameters of the \eqn{g}-priors.
 
-Priors used in \code{method=2} are the Jeffreys prior for the overall mean and residual variance,
+Priors used in "method=2" are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects,
 and the standard uniform distribution for
 the square root of \eqn{g} parameter.
 
-Priors used in \code{method=3} are the Jeffreys prior for the overall mean and residual variance,
+Priors used in "method=3" are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects,
 and the standard half-Cauchy distribution for the square root of \eqn{g} parameter.
 
-Priors used in \code{method=4} are the Jeffreys prior for the condition means and residual variance,
+Priors used in "method=4" are the Jeffreys prior for the condition means and residual variance,
 a \eqn{g}-prior structure for standardized subject-specific random effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the \eqn{g}-priors (Heck, 2019).
 
-Priors used in \code{method=5} are the Jeffreys prior for the condition means and residual variance,
+Priors used in "method=5" are the Jeffreys prior for the condition means and residual variance,
 a normal distribution for (not standardized) subject-specific random effects, and the standard uniform distribution for the square root of \eqn{g} parameter.
 
-Priors used in \code{method=6} are the Jeffreys prior for the condition means and residual variance,
+Priors used in "method=6" are the Jeffreys prior for the condition means and residual variance,
 a normal distribution for (not standardized) subject-specific random effects, and the standard half-Cauchy distribution for the square root of \eqn{g} parameter.
 }
 \examples{
