@@ -15,7 +15,7 @@
 #'
 #'When the homogeneity of variance holds,
 #'a linear mixed-effects model \eqn{M_1} for the mean response in a one-way within-subjects design is
-#'\deqn{M_1: Y_{ij} = \mu + \sigma_\epsilon (t_i + b_j) + \epsilon_{ij}  versus  M_0: Y_{ij} = \mu + \sigma_\epsilon b_j + \epsilon_{ij},  \epsilon_{ij} ~ N(0, \sigma_\epsilon^2),  i=1,\ldots,a; j=1,\ldots,n,}
+#'\deqn{M_1: Y_{ij} = \mu + \sigma_\epsilon (t_i + b_j) + \epsilon_{ij}  \text{versus}  M_0: Y_{ij} = \mu + \sigma_\epsilon b_j + \epsilon_{ij},  \epsilon_{ij} \sim N(0, \sigma_\epsilon^2),  i=1,\ldots,a; j=1,\ldots,n,}
 #'where \eqn{Y_ij} represents the mean response for the \eqn{j}-th
 #'subject under the \eqn{i}-th level of the experimental manipulation;
 #'\eqn{\mu} is the overall mean, \eqn{\tau_i = \sigma_\epsilon t_i} is the \eqn{i}-th level of the experimental manipulation;
@@ -28,19 +28,19 @@
 #'An assumption articulated in \code{method=0} is the Jeffreys prior for the condition means \eqn{\mu_i} and residual variance \eqn{\sigma_\epsilon^2} (Nathoo et al., 2018).
 #'
 #'Priors used in \code{method=1} are the Jeffreys prior for the overall mean \eqn{\mu} and residual variance,
-#'a \eqn{g}-prior structure for standardized effects (\eqn{t_i ~ N(0, g_t)}, \eqn{b_j ~ N(0, g_b)}),
+#'a \eqn{g}-prior structure for standardized effects \eqn{t_i \sim N(0, g_t)}, \eqn{b_j \sim N(0, g_b)},
 #'and independent scaled inverse-chi-square priors with one degree of freedom for
-#'the scale hyperparameters of the \eqn{g}-priors (\eqn{g_t ~ Scale-inv-\chi^2(1, h_t^2)}, \eqn{g_b ~ Scale-inv-\chi^2(1, h_b^2)}).
+#'the scale hyperparameters of the \eqn{g}-priors \eqn{g_t \sim \text{Scale-inv-}\chi^2(1, h_t^2)}, \eqn{g_b \sim \text{Scale-inv-}\chi^2(1, h_b^2)}.
 #'
 #'Priors used in \code{method=2} are the Jeffreys prior for the overall mean and residual variance,
-#'a normal distribution for (not standardized) effects (\eqn{\sigma_\epsilon t_i ~ N(0, g_t)}, \eqn{\sigma_\epsilon b_j ~ N(0, g_b)}),
+#'a normal distribution for (not standardized) effects \eqn{\sigma_\epsilon t_i \sim N(0, g_t)}, \eqn{\sigma_\epsilon b_j \sim N(0, g_b)},
 #'and the standard uniform distribution for
-#'the square root of \eqn{g} parameter (\eqn{sqrt(g_t) ~ Unif(0, 1)}, \eqn{sqrt(g_b) ~ Unif(0, 1)}).
+#'the square root of \eqn{g} parameter \eqn{\sqrt{g_t} \sim \text{Unif}(0, 1)}, \eqn{\sqrt{g_b} \sim \text{Unif}(0, 1)}.
 #'
 #'Priors used in \code{method=3} are the Jeffreys prior for the overall mean and residual variance,
 #'a normal distribution for (not standardized) effects,
 #'and the standard half-Cauchy distribution for the square root of \eqn{g} parameter
-#'(\eqn{sqrt(g_t) ~ Half-Cauchy(0, 1)}, \eqn{sqrt(g_b) ~ Half-Cauchy(0, 1)}).
+#'\eqn{\sqrt{g_t} \sim \text{Half-Cauchy}(0, 1)}, \eqn{\sqrt{g_b} \sim \text{Half-Cauchy}(0, 1)}.
 #'
 #'Priors used in \code{method=4} are the Jeffreys prior for the condition means and residual variance,
 #'a \eqn{g}-prior structure for standardized subject-specific random effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the \eqn{g}-priors (Heck, 2019).
