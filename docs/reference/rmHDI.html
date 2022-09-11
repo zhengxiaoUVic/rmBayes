@@ -217,7 +217,7 @@ Markov chain Monte Carlo sampling is also used to obtain the standard highest-de
 for each condition mean in a one-way between-subjects design.</p>
 <p>When the homogeneity of variance holds,
 a linear mixed-effects model \(M_1\) for the mean response in a one-way within-subjects design is
-$$M_1: Y_{ij} = \mu + \sigma_\epsilon (t_i + b_j) + \epsilon_{ij}  \text{versus}  M_0: Y_{ij} = \mu + \sigma_\epsilon b_j + \epsilon_{ij},  \epsilon_{ij} \sim N(0, \sigma_\epsilon^2),  i=1,\ldots,a; j=1,\ldots,n,$$
+$$M_1: Y_{ij} = \mu + \sigma_\epsilon (t_i + b_j) + \epsilon_{ij}  versus  M_0: Y_{ij} = \mu + \sigma_\epsilon b_j + \epsilon_{ij},  \epsilon_{ij} ~ N(0, \sigma_\epsilon^2),  i=1,\ldots,a; j=1,\ldots,n,$$
 where \(Y_ij\) represents the mean response for the \(j\)-th
 subject under the \(i\)-th level of the experimental manipulation;
 \(\mu\) is the overall mean, \(\tau_i = \sigma_\epsilon t_i\) is the \(i\)-th level of the experimental manipulation;
@@ -228,17 +228,16 @@ subject under the \(i\)-th level of the experimental manipulation;
 The effects \(t_i\) and \(b_j\) are both standardized relative to the standard deviation of the error \(\sigma_\epsilon\) and become dimensionless (Rouder et al., 2012).</p>
 <p>An assumption articulated in <code>method=0</code> is the Jeffreys prior for the condition means \(\mu_i\) and residual variance \(\sigma_\epsilon^2\) (Nathoo et al., 2018).</p>
 <p>Priors used in <code>method=1</code> are the Jeffreys prior for the overall mean \(\mu\) and residual variance,
-a \(g\)-prior structure for standardized effects \(t_i \sim N(0, g_t)\), \(b_j \sim N(0, g_b)\),
+a \(g\)-prior structure for standardized effects,
 and independent scaled inverse-chi-square priors with one degree of freedom for
-the scale hyperparameters of the \(g\)-priors \(g_t \sim \text{Scale-inv-}\chi^2(1, h_t^2)\), \(g_b \sim \text{Scale-inv-}\chi^2(1, h_b^2)\).</p>
+the scale hyperparameters of the \(g\)-priors.</p>
 <p>Priors used in <code>method=2</code> are the Jeffreys prior for the overall mean and residual variance,
-a normal distribution for (not standardized) effects \(\sigma_\epsilon t_i \sim N(0, g_t)\), \(\sigma_\epsilon b_j \sim N(0, g_b)\),
+a normal distribution for (not standardized) effects,
 and the standard uniform distribution for
-the square root of \(g\) parameter \(\sqrt{g_t} \sim \text{Unif}(0, 1)\), \(\sqrt{g_b} \sim \text{Unif}(0, 1)\).</p>
+the square root of \(g\) parameter.</p>
 <p>Priors used in <code>method=3</code> are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects,
-and the standard half-Cauchy distribution for the square root of \(g\) parameter
-\(\sqrt{g_t} \sim \text{Half-Cauchy}(0, 1)\), \(\sqrt{g_b} \sim \text{Half-Cauchy}(0, 1)\).</p>
+and the standard half-Cauchy distribution for the square root of \(g\) parameter.</p>
 <p>Priors used in <code>method=4</code> are the Jeffreys prior for the condition means and residual variance,
 a \(g\)-prior structure for standardized subject-specific random effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the \(g\)-priors (Heck, 2019).</p>
 <p>Priors used in <code>method=5</code> are the Jeffreys prior for the condition means and residual variance,
