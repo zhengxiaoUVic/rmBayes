@@ -5,10 +5,9 @@
 
 <!-- badges: start -->
 
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/zhengxiaoUVic/rmBayes?branch=main&svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmBayes)
-[![Codecov test
-coverage](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg)](https://codecov.io/gh/zhengxiaoUVic/rmBayes?branch=main)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/3iqry01fu7p2adev/branch/main?svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmbayes/branch/main)
+[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://codecov.io/gh/zhengxiaoUVic/rmBayes)
 [![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
 
@@ -56,6 +55,9 @@ install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type
 ```
 
 ## Statistical Model
+
+*Note: if the LaTeX equations (svg images) display “Unsupported Plug-in”
+on Safari, please try another web browser.*
 
 When the homogeneity of variance holds, a linear mixed-effects model
 ![\\mathcal{M}\_1](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BM%7D_1 "\mathcal{M}_1")
