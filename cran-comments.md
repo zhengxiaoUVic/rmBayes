@@ -1,5 +1,8 @@
 ## CRAN submission
 
+* Updated: September 10, 2022.
+R 4.2.0 switched to use HTML5 for documentation pages. Now validation using HTML Tidy finds problems in the HTML generated from the previous Rd files.
+
 * Submitted: September 14, 2021.
 * Accepted: September 15, 2021.
 For future submissions/updates: If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form e.g. authors (year) <doi:...>

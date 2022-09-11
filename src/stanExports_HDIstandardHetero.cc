@@ -7,7 +7,7 @@ using namespace Rcpp ;
 RCPP_MODULE(stan_fit4HDIstandardHetero_mod) {
 
 
-    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("model_HDIstandardHetero")
+    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("rstantools_model_HDIstandardHetero")
 
     .constructor<SEXP,SEXP,SEXP>()
 

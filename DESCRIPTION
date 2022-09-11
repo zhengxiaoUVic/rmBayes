@@ -1,6 +1,8 @@
 Package: rmBayes
+Type: Package
 Title: Performing Bayesian Inference for Repeated-Measures Designs
-Version: 0.1.13
+Version: 0.1.14
+Date: 2022-09-10
 Authors@R: 
     c(person(given = "Zhengxiao",
            family = "Wei",
@@ -22,26 +24,27 @@ Description: A Bayesian credible interval is interpreted with respect to posteri
     However, standard highest-density intervals can be wide due to between-subjects variability and tends 
     to hide within-subjects effects, rendering its relationship with the Bayes factor less clear 
     in within-subjects (repeated-measures) designs. 
-    This urgent issue can be addressed by using within-subjects intervals in within-subjects designs.
+    This urgent issue can be addressed by using within-subjects intervals in within-subjects designs, 
+    which integretate the methods proposed in Loftus-Masson (1994) <doi:10.3758/BF03210951>, 
+    Rouder-Morey-Speckman-Province (2012) <doi:10.1016/j.jmp.2012.08.001>, 
+    Nathoo-Kilshaw-Masson (2018) <doi:10.1016/j.jmp.2018.07.005>, 
+    and Heck (2019) <doi:10.31234/osf.io/whp8t>.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Biarch: true
 Depends: 
     R (>= 3.4.0)
 Imports: 
     methods,
     Rcpp (>= 0.12.0),
-    RcppParallel (>= 5.0.1),
-    rstan (>= 2.18.1),
-    rstantools (>= 2.1.1)
+    rstan (>= 2.18.1)
 LinkingTo: 
     BH (>= 1.66.0),
     Rcpp (>= 0.12.0),
     RcppEigen (>= 0.3.3.3.0),
-    RcppParallel (>= 5.0.1),
     rstan (>= 2.18.1),
     StanHeaders (>= 2.18.0)
 SystemRequirements: GNU make

@@ -7,7 +7,11 @@
 #' However, standard highest-density intervals can be wide due to between-subjects variability
 #' and tends to hide within-subjects effects, rendering its relationship with the Bayes factor
 #' less clear in within-subjects (repeated-measures) designs.
-#' This urgent issue can be addressed by using within-subjects intervals in within-subjects designs.
+#' This urgent issue can be addressed by using within-subjects intervals in within-subjects designs,
+#' which integretate the methods proposed in Loftus-Masson (1994) <doi:10.3758/BF03210951>,
+#' Rouder-Morey-Speckman-Province (2012) <doi:10.1016/j.jmp.2012.08.001>,
+#' Nathoo-Kilshaw-Masson (2018) <doi:10.1016/j.jmp.2018.07.005>,
+#' and Heck (2019) <doi:10.31234/osf.io/whp8t>.
 #'
 #' @docType package
 #' @name rmBayes-package
