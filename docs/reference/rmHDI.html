@@ -28,6 +28,9 @@ proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Ki
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/zhengxiaoUVic/rmBayes/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -120,14 +123,14 @@ If both <code>data</code> and <code>data.wide</code> are specified, the credible
 
 <dt>method</dt>
 <dd><p>A positive integer in <code>0:6</code> specifying which method is used to construct within-subjects HDIs (see Details).
-"method=0" implements the approach developed by Nathoo et al. (2018).
-"method=4" implements the approach by Heck (2019).
-"method=5" implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
-"method=6" implements the approach by Heck (2019), but using the standard half-Cauchy prior distribution for the standard deviation of subject-specific random effects.
-"method=1" (default) implements the approach by Heck (2019), but using the Jeffreys prior for the overall mean rather than the condition means;
+<code>method=0</code> implements the approach developed by Nathoo et al. (2018).
+<code>method=4</code> implements the approach by Heck (2019).
+<code>method=5</code> implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
+<code>method=6</code> implements the approach by Heck (2019), but using the standard half-Cauchy prior distribution for the standard deviation of subject-specific random effects.
+<code>method=1</code> (default) implements the approach by Heck (2019), but using the Jeffreys prior for the overall mean rather than the condition means;
 the hierarchical specification regarding the \(g\)-prior for the standardized subject-specific random effects is discussed in Rouder et al. (2012, p. 361-362).
 With the Jeffreys prior for the overall mean and residual variance,
-"method=2" uses the standard uniform prior, and "method=3" uses the standard half-Cauchy prior for the standard deviation of random effects.
+<code>method=2</code> uses the standard uniform prior, and <code>method=3</code> uses the standard half-Cauchy prior for the standard deviation of random effects.
 For the computation of the standard HDI, see the <code>design</code> argument below.</p></dd>
 
 
@@ -135,16 +138,16 @@ For the computation of the standard HDI, see the <code>design</code> argument be
 <dd><p>A logical variable indicating whether to treat the variance of the response within each condition (level of the experimental manipulation) as being equal.
 If <code>TRUE</code> (default), the homogeneity of variance holds, and a common variance across conditions is assumed.
 Otherwise, <code>FALSE</code> will generate unequal interval widths for conditions.
-Two approaches are currently provided for the heteroscedastic within-subjects data: "method=0" implements the approach developed by Nathoo et al. (2018, p. 5);
-"method=1" (default method if "var.equal=FALSE") implements the heteroscedastic standard HDI method on the subject-centering transformed data.
-If a <code>method</code> option other than <code>0</code> or <code>1</code> is used with "var.equal=FALSE",
+Two approaches are currently provided for the heteroscedastic within-subjects data: <code>method=0</code> implements the approach developed by Nathoo et al. (2018, p. 5);
+<code>method=1</code> (default method if <code>var.equal=FALSE</code>) implements the heteroscedastic standard HDI method on the subject-centering transformed data.
+If a <code>method</code> option other than <code>0</code> or <code>1</code> is used with <code>var.equal=FALSE</code>,
 a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.</p></dd>
 
 
 <dt>design</dt>
 <dd><p>A character string specifying the experimental design.
 If <code>"within"</code> (default), construct the within-subjects HDIs based on the given <code>method</code> in <code>0:6</code>.
-If <code>"between"</code>, construct the standard HDIs using the priors in "method=1" (but not removing the between-subjects variability).</p></dd>
+If <code>"between"</code>, construct the standard HDIs using the priors in <code>method=1</code> (but not removing the between-subjects variability).</p></dd>
 
 
 <dt>treat</dt>
@@ -154,11 +157,11 @@ If <code>"random"</code> (default), treat the condition effects as random effect
 
 
 <dt>ht</dt>
-<dd><p>A positive real number specifying the prior scale for standardized condition effects when "method=1" (see Details). The default is 0.5 when <code>treat="fixed"</code> and 1 when <code>treat="random"</code>.</p></dd>
+<dd><p>A positive real number specifying the prior scale for standardized condition effects when <code>method=1</code> (see Details). The default is 0.5 when <code>treat="fixed"</code> and 1 when <code>treat="random"</code>.</p></dd>
 
 
 <dt>hb</dt>
-<dd><p>A positive real number specifying the prior scale for standardized subject-specific random effects when "method=1" or "method=4" (see Details). The default is 1.</p></dd>
+<dd><p>A positive real number specifying the prior scale for standardized subject-specific random effects when <code>method=1</code> or <code>method=4</code> (see Details). The default is 1.</p></dd>
 
 
 <dt>seed</dt>
@@ -183,7 +186,7 @@ and the column permutation (e.g., switching the first and second columns) will r
 
 
 <dt>...</dt>
-<dd><p>Additional arguments that pass to <code><a href="https://rdrr.io/pkg/rstan/man/stanmodel-method-sampling.html" class="external-link">sampling</a></code>,
+<dd><p>Additional arguments that pass to <code><a href="https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html" class="external-link">sampling</a></code>,
 such as <code>thin</code>, <code>algorithm</code>, <code>cores</code>, etc.</p></dd>
 
 </dl></div>
@@ -195,10 +198,10 @@ such as <code>thin</code>, <code>algorithm</code>, <code>cores</code>, etc.</p><
 <dl><dt>HDI</dt>
 <dd><p>A matrix of HDI lower and upper bounds, whose row names are the condition levels.</p></dd>
 
-<dt><code>posterior means</code></dt>
+<dt>posterior means</dt>
 <dd><p>The posterior condition means when using <code>method</code> in <code>1:6</code>.</p></dd>
 
-<dt><code>arithmetic means</code></dt>
+<dt>arithmetic means</dt>
 <dd><p>Or, the arithmetic condition means when using <code>method=0</code>.</p></dd>
 
 <dt>width</dt>
@@ -228,16 +231,17 @@ subject under the \(i\)-th level of the experimental manipulation;
 The effects \(t_i\) and \(b_j\) are both standardized relative to the standard deviation of the error \(\sigma_\epsilon\) and become dimensionless (Rouder et al., 2012).</p>
 <p>An assumption articulated in "method=0" is the Jeffreys prior for the condition means \(\mu_i\) and residual variance \(\sigma_\epsilon^2\) (Nathoo et al., 2018).</p>
 <p>Priors used in "method=1" are the Jeffreys prior for the overall mean \(\mu\) and residual variance,
-a \(g\)-prior structure for standardized effects,
+a \(g\)-prior structure for standardized effects (\(t_i ~ N(0, g_t)\), \(b_j ~ N(0, g_b)\)),
 and independent scaled inverse-chi-square priors with one degree of freedom for
-the scale hyperparameters of the \(g\)-priors.</p>
+the scale hyperparameters of the \(g\)-priors (\(g_t ~ Scale-inv-\chi^2(1, h_t^2)\), \(g_b ~ Scale-inv-\chi^2(1, h_b^2)\)).</p>
 <p>Priors used in "method=2" are the Jeffreys prior for the overall mean and residual variance,
-a normal distribution for (not standardized) effects,
+a normal distribution for (not standardized) effects (\(\sigma_\epsilon t_i ~ N(0, g_t)\), \(\sigma_\epsilon b_j ~ N(0, g_b)\)),
 and the standard uniform distribution for
-the square root of \(g\) parameter.</p>
+the square root of \(g\) parameter (\(sqrt(g_t) ~ Unif(0, 1)\), \(sqrt(g_b) ~ Unif(0, 1)\)).</p>
 <p>Priors used in "method=3" are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects,
-and the standard half-Cauchy distribution for the square root of \(g\) parameter.</p>
+and the standard half-Cauchy distribution for the square root of \(g\) parameter
+(\(sqrt(g_t) ~ Half-Cauchy(0, 1)\), \(sqrt(g_b) ~ Half-Cauchy(0, 1)\)).</p>
 <p>Priors used in "method=4" are the Jeffreys prior for the condition means and residual variance,
 a \(g\)-prior structure for standardized subject-specific random effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the \(g\)-priors (Heck, 2019).</p>
 <p>Priors used in "method=5" are the Jeffreys prior for the condition means and residual variance,
