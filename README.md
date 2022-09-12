@@ -229,12 +229,10 @@ default priors by projecting a set of
 ![a](https://latex.codecogs.com/png.image?a "a") main effects into
 ![a-1](https://latex.codecogs.com/png.image?a-1 "a-1") parameters such
 that
-
-1)  ![t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),](https://latex.codecogs.com/png.image?t_i%5E%7B%5Cstar%7D%5Cmid%20g%5Coverset%7B%5Ctext%7Bind.%7D%7D%7B%5Csim%7D%5Cmathcal%7BN%7D%280%2Cg%29%2C "t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),")
-
-2)  ![(t_1^{\star},\dotsb,t\_{a-1}^{\star})=(t_1,\dotsb,t\_{a})\cdot\mathbf{Q},](https://latex.codecogs.com/png.image?%28t_1%5E%7B%5Cstar%7D%2C%5Cdotsb%2Ct_%7Ba-1%7D%5E%7B%5Cstar%7D%29%3D%28t_1%2C%5Cdotsb%2Ct_%7Ba%7D%29%5Ccdot%5Cmathbf%7BQ%7D%2C "(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q},")
-
-3)  ![\text{and } \mathbf{I}\_a-a^{-1}\mathbf{J}\_a=\mathbf{Q}\cdot\mathbf{I}\_{a-1}\cdot\mathbf{Q^{\top}},](https://latex.codecogs.com/png.image?%5Ctext%7Band%20%7D%20%5Cmathbf%7BI%7D_a-a%5E%7B-1%7D%5Cmathbf%7BJ%7D_a%3D%5Cmathbf%7BQ%7D%5Ccdot%5Cmathbf%7BI%7D_%7Ba-1%7D%5Ccdot%5Cmathbf%7BQ%5E%7B%5Ctop%7D%7D%2C "\text{and } \mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}},")
+![t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),](https://latex.codecogs.com/png.image?t_i%5E%7B%5Cstar%7D%5Cmid%20g%5Coverset%7B%5Ctext%7Bind.%7D%7D%7B%5Csim%7D%5Cmathcal%7BN%7D%280%2Cg%29%2C "t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),"),
+![(t_1^{\star},\dotsb,t\_{a-1}^{\star})=(t_1,\dotsb,t\_{a})\cdot\mathbf{Q},](https://latex.codecogs.com/png.image?%28t_1%5E%7B%5Cstar%7D%2C%5Cdotsb%2Ct_%7Ba-1%7D%5E%7B%5Cstar%7D%29%3D%28t_1%2C%5Cdotsb%2Ct_%7Ba%7D%29%5Ccdot%5Cmathbf%7BQ%7D%2C "(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q},"),
+and
+![\mathbf{I}\_a-a^{-1}\mathbf{J}\_a=\mathbf{Q}\cdot\mathbf{I}\_{a-1}\cdot\mathbf{Q^{\top}},](https://latex.codecogs.com/png.image?%5Cmathbf%7BI%7D_a-a%5E%7B-1%7D%5Cmathbf%7BJ%7D_a%3D%5Cmathbf%7BQ%7D%5Ccdot%5Cmathbf%7BI%7D_%7Ba-1%7D%5Ccdot%5Cmathbf%7BQ%5E%7B%5Ctop%7D%7D%2C "\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}},")
 
 where
 ![\mathbf{I}\_a](https://latex.codecogs.com/png.image?%5Cmathbf%7BI%7D_a "\mathbf{I}_a")
