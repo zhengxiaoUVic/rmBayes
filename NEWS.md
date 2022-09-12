@@ -1,6 +1,6 @@
 # rmBayes 0.1.14
 
-* Fixed HTML validation problems (nested emphasis) on the equations of the rmHDI documentation for R 4.2.0 or later.
+* Fixed HTML validation problems (nested emphasis) on the rmHDI documentation for R-devel.
 
 * Fixed Namespaces in Imports field not imported from: 'RcppParallel' 'rstantools'.
 

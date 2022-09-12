@@ -1,7 +1,7 @@
 ---
 output:
   github_document:
-    pandoc_args: --webtex=https://latex.codecogs.com/svg.latex?
+    pandoc_args: --webtex=https://latex.codecogs.com/png.image?
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -39,12 +39,12 @@ R 4.0.1 or later is recommended. Prior to installing the package, you need to co
 * [Windows - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows)
 * [Linux - Configuring C++ Toolchain](https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux)
 
-Installation time of the source package is about 11 minutes (Stan models need to be compiled). If you have R version 4.0.1 or later on Mac, Windows, or Ubuntu, you can find the binary packages [HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/). Or, directly install the binary package by calling
+Installation time of the source package is about 11 minutes (Stan models need to be compiled). If you have R version 4.0.1 or later on Mac, Windows, or Ubuntu, you can find the binary packages [HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/). Or, directly install the binary package by **preferably** calling
 
 ``` r
 install.packages("rmBayes", type = "binary")
 
-#Or, install from GitHub
+#Or, install from GitHub (archived)
 install.packages("rstan")
 install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary")
 ```
@@ -52,14 +52,8 @@ install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type
 
 ## Statistical Model
 
-*Note: if the LaTeX equations (svg images) display “Unsupported Plug-in” on Safari, please try another web browser.*
-
 When the homogeneity of variance holds,
-a linear mixed-effects model $\mathcal{M}_1$ for the mean response in a one-way within-subjects design is
-
-$\mathcal{M}_1:\ Y_{ij}=\mu+\sigma_\epsilon (t_i+b_j)+\epsilon_{ij}\quad\text{versus}\quad\mathcal{M}_0:\ Y_{ij}=\mu+\sigma_\epsilon b_j+\epsilon_{ij},$
-
-$\epsilon_{ij}\overset{\text{i.i.d.}}{\sim}\mathcal{N}(0,\sigma_\epsilon^2), \ i=1,\dotsb,a;\ j=1,\dotsb,n,$
+a linear mixed-effects model $\mathcal{M}_1$ for the mean response in a one-way within-subjects design is $\mathcal{M}_1:\ Y_{ij}=\mu+\sigma_\epsilon (t_i+b_j)+\epsilon_{ij}\quad\text{versus}\quad\mathcal{M}_0:\ Y_{ij}=\mu+\sigma_\epsilon b_j+\epsilon_{ij},$ $\epsilon_{ij}\overset{\text{i.i.d.}}{\sim}\mathcal{N}(0,\sigma_\epsilon^2), \ i=1,\dotsb,a;\ j=1,\dotsb,n,$
 
 where $Y_{ij}$ represents the mean response for the $j$th
 subject under the $i$th level of the experimental manipulation;
@@ -152,13 +146,13 @@ rmHDI(recall.long, design = "between", seed = 277)
 
 When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that
 
-$t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),$
+(1) $t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),$
 
-$(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathrm{Q},$
+(2) $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q},$
 
-$\text{and } \mathrm{I_a}-a^{-1}\mathrm{J_a}=\mathrm{Q}\cdot\mathrm{I_{a-1}}\cdot\mathrm{Q^{\top}},$
+(3) $\text{and } \mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}},$
 
-where $\mathrm{I_{a}}$ is the identity matrix of size $a$, $\mathrm{J_a}$ is the all-ones matrix of size $a$, $\mathrm{Q}$ is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathrm{I_a}-a^{-1}\mathrm{J_a}$, and $(t_1,\dotsb,t_{a})$ is the row vector.
+where $\mathbf{I}_a$ is the identity matrix of size $a$, $\mathbf{J}_a$ is the all-ones matrix of size $a$, $\mathbf{Q}$ is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathbf{I}_a-a^{-1}\mathbf{J}_a$, and $(t_1,\dotsb,t_{a})$ is the row vector.
 
 ``` r
 rmHDI(recall.long, treat = "fixed", seed = 277)
@@ -177,6 +171,15 @@ minus the overall mean). If a method option other than `0` or `1` is used with `
 
 ``` r
 rmHDI(recall.long, var.equal = FALSE)
+```
+
+
+## MCMC Diagnostics
+
+Check the Rhat statistic and effective sample size of MCMC draws.
+
+```r
+rmHDI(recall.long, seed = 277, diagnostics = TRUE)$diagnostics
 ```
 
 
