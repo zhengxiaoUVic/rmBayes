@@ -144,7 +144,7 @@ rmHDI(recall.long, design = "between", seed = 277)
 
 ## Random Versus Fixed Effects
 
-When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that $t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g),$, $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q},$, and $\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}},$
+When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that $t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g)$, $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q}$, and $\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}}$,
 
 where $\mathbf{I}_a$ is the identity matrix of size $a$, $\mathbf{J}_a$ is the all-ones matrix of size $a$, $\mathbf{Q}$ is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathbf{I}_a-a^{-1}\mathbf{J}_a$, and $(t_1,\dotsb,t_{a})$ is the row vector.
 
