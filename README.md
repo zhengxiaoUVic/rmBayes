@@ -7,7 +7,7 @@
 
 [![Build
 status](https://ci.appveyor.com/api/projects/status/3iqry01fu7p2adev/branch/main?svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmbayes/branch/main)
-[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://codecov.io/gh/zhengxiaoUVic/rmBayes)
+[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
 [![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
 
