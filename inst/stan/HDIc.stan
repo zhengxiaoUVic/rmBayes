@@ -27,7 +27,7 @@ model {
 
   // priors
   // mu ~ implicit uniform prior     // Jeffreys prior
-  target += -2* log(sigma);          // Jeffreys prior
+  target += -log(sigma);             // Jeffreys prior
   gb ~ scaled_inv_chi_square(1, hb); // Rouder et al. (2012)
 }
 

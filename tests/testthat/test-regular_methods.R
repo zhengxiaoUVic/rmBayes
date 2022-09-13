@@ -14,7 +14,7 @@ skip_on_os(c("windows", "linux", "solaris"))
 test_that("Within-subjects HDI width computed by (default) Method 1", {
   HDI <- rmHDI(data.wide = recall.wide, seed = 277)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.53877)
+  expect_equal(width, 0.55911)
 })
 
 test_that("Within-subjects HDI width computed by Method 0", {
@@ -28,35 +28,35 @@ test_that("Within-subjects HDI width computed by Method 2", {
   expect_match(w, ".*treedepth", all = FALSE)
   expect_match(w, ".*pairs()", all = FALSE)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.51502)
+  expect_equal(width, 0.53212)
 })
 
 test_that("Within-subjects HDI width computed by Method 3", {
   HDI <- rmHDI(data.wide = recall.wide, method = 3, seed = 277)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.51947)
+  expect_equal(width, 0.53395)
 })
 
 test_that("Within-subjects HDI width computed by Method 4", {
   HDI <- rmHDI(data.wide = recall.wide, method = 4, seed = 277)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.53066)
+  expect_equal(width, 0.54586)
 })
 
 test_that("Within-subjects HDI width computed by Method 5", {
   HDI <- rmHDI(data.wide = recall.wide, method = 5, seed = 277)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.51702)
+  expect_equal(width, 0.5296)
 })
 
 test_that("Within-subjects HDI width computed by Method 6", {
   HDI <- rmHDI(data.wide = recall.wide, method = 6, seed = 277)
   width <- round(HDI$width, 5)
-  expect_equal(width, 0.51361)
+  expect_equal(width, 0.53185)
 })
 
 test_that("Standard HDI widths", {
   HDI <- rmHDI(data.wide = recall.wide, design = "between", seed = 277)
   width <- unname(round(HDI$width, 5))
-  expect_equal(width, c(3.44283, 3.43365, 3.48450))
+  expect_equal(width, c(3.47993, 3.51281, 3.58275))
 })

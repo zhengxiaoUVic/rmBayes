@@ -21,7 +21,7 @@ model {
 
   // priors
   // mu ~ implicit uniform prior     // Jeffreys prior
-  target += -2* log(sigma);          // Jeffreys prior
+  target += -log(sigma);             // Jeffreys prior
   tau ~ cauchy(0, 1);
 }
 

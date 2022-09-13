@@ -20,7 +20,7 @@ proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Ki
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmBayes</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.15</span>
       </span>
     </div>
 
@@ -229,24 +229,24 @@ subject under the \(i\)-th level of the experimental manipulation;
 \(a\) is the number of levels; \(n\) is the number of subjects;
 \(\epsilon_{ij}\) are independent and identically distributed.
 The effects \(t_i\) and \(b_j\) are both standardized relative to the standard deviation of the error \(\sigma_\epsilon\) and become dimensionless (Rouder et al., 2012).</p>
-<p>An assumption articulated in "method=0" is the Jeffreys prior for the condition means \(\mu_i\) and residual variance \(\sigma_\epsilon^2\) (Nathoo et al., 2018).</p>
-<p>Priors used in "method=1" are the Jeffreys prior for the overall mean \(\mu\) and residual variance,
+<p>An assumption articulated in <code>method=0</code> is the Jeffreys prior for the condition means \(\mu_i\) and residual variance \(\sigma_\epsilon^2\) (Nathoo et al., 2018).</p>
+<p>Priors used in <code>method=1</code> are the Jeffreys prior for the overall mean \(\mu\) and residual variance,
 a \(g\)-prior structure for standardized effects (\(t_i ~ N(0, g_t)\), \(b_j ~ N(0, g_b)\)),
 and independent scaled inverse-chi-square priors with one degree of freedom for
 the scale hyperparameters of the \(g\)-priors (\(g_t ~ Scale-inv-\chi^2(1, h_t^2)\), \(g_b ~ Scale-inv-\chi^2(1, h_b^2)\)).</p>
-<p>Priors used in "method=2" are the Jeffreys prior for the overall mean and residual variance,
+<p>Priors used in <code>method=2</code> are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects (\(\sigma_\epsilon t_i ~ N(0, g_t)\), \(\sigma_\epsilon b_j ~ N(0, g_b)\)),
 and the standard uniform distribution for
 the square root of \(g\) parameter (\(sqrt(g_t) ~ Unif(0, 1)\), \(sqrt(g_b) ~ Unif(0, 1)\)).</p>
-<p>Priors used in "method=3" are the Jeffreys prior for the overall mean and residual variance,
+<p>Priors used in <code>method=3</code> are the Jeffreys prior for the overall mean and residual variance,
 a normal distribution for (not standardized) effects,
 and the standard half-Cauchy distribution for the square root of \(g\) parameter
 (\(sqrt(g_t) ~ Half-Cauchy(0, 1)\), \(sqrt(g_b) ~ Half-Cauchy(0, 1)\)).</p>
-<p>Priors used in "method=4" are the Jeffreys prior for the condition means and residual variance,
+<p>Priors used in <code>method=4</code> are the Jeffreys prior for the condition means and residual variance,
 a \(g\)-prior structure for standardized subject-specific random effects, and independent scaled inverse-chi-square priors with one degree of freedom for the scale hyperparameters of the \(g\)-priors (Heck, 2019).</p>
-<p>Priors used in "method=5" are the Jeffreys prior for the condition means and residual variance,
+<p>Priors used in <code>method=5</code> are the Jeffreys prior for the condition means and residual variance,
 a normal distribution for (not standardized) subject-specific random effects, and the standard uniform distribution for the square root of \(g\) parameter.</p>
-<p>Priors used in "method=6" are the Jeffreys prior for the condition means and residual variance,
+<p>Priors used in <code>method=6</code> are the Jeffreys prior for the condition means and residual variance,
 a normal distribution for (not standardized) subject-specific random effects, and the standard half-Cauchy distribution for the square root of \(g\) parameter.</p>
     </div>
     <div id="references">
@@ -286,6 +286,9 @@ Michael E.J. Masson (<a href="mailto:mmasson@uvic.ca">mmasson@uvic.ca</a>).</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Standard HDI</span></span></span>
 <span class="r-in"><span><span class="fu">rmHDI</span><span class="op">(</span><span class="va">recall.long</span>, design <span class="op">=</span> <span class="st">"between"</span>, seed <span class="op">=</span> <span class="fl">277</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## MCMC diagnostics</span></span></span>
+<span class="r-in"><span><span class="fu">rmHDI</span><span class="op">(</span><span class="va">recall.long</span>, seed <span class="op">=</span> <span class="fl">277</span>, diagnostics <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">$</span><span class="va">diagnostics</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

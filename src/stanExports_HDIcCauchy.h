@@ -263,7 +263,7 @@ public:
             current_statement_begin__ = 20;
             lp_accum__.add(normal_log<propto__>(b, 0, tau));
             current_statement_begin__ = 24;
-            lp_accum__.add((-(2) * stan::math::log(sigma)));
+            lp_accum__.add(-(stan::math::log(sigma)));
             current_statement_begin__ = 25;
             lp_accum__.add(cauchy_log<propto__>(tau, 0, 1));
         } catch (const std::exception& e) {

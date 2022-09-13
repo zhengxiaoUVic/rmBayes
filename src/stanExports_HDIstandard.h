@@ -294,7 +294,7 @@ public:
             current_statement_begin__ = 30;
             lp_accum__.add(normal_log<propto__>(t, 0, eta));
             current_statement_begin__ = 34;
-            lp_accum__.add((-(2) * stan::math::log(sigma)));
+            lp_accum__.add(-(stan::math::log(sigma)));
             current_statement_begin__ = 35;
             lp_accum__.add(scaled_inv_chi_square_log<propto__>(gt, 1, ht));
             }

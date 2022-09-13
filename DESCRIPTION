@@ -1,8 +1,8 @@
 Package: rmBayes
 Type: Package
 Title: Performing Bayesian Inference for Repeated-Measures Designs
-Version: 0.1.14
-Date: 2022-09-11
+Version: 0.1.15
+Date: 2022-09-12
 Authors@R: 
     c(person(given = "Zhengxiao",
            family = "Wei",

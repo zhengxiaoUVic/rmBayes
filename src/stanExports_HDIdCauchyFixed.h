@@ -345,7 +345,7 @@ public:
             current_statement_begin__ = 29;
             lp_accum__.add(normal_log<propto__>(b, 0, tau));
             current_statement_begin__ = 33;
-            lp_accum__.add((-(2) * stan::math::log(sigma)));
+            lp_accum__.add(-(stan::math::log(sigma)));
             current_statement_begin__ = 34;
             lp_accum__.add(cauchy_log<propto__>(eta, 0, 1));
             current_statement_begin__ = 35;

@@ -24,7 +24,7 @@ model {
 
   // priors
   // mu, eta, tau ~ implicit uniform prior  // Jeffreys prior
-  target += -2* log(sigma);                 // Jeffreys prior
+  target += -log(sigma);                    // Jeffreys prior
 }
 
 // compute HDI boundaries based on Nathoo, Kilshaw, & Masson (2018) and Heck (2019)

@@ -309,7 +309,7 @@ public:
             current_statement_begin__ = 23;
             lp_accum__.add(normal_log<propto__>(b, 0, tau));
             current_statement_begin__ = 27;
-            lp_accum__.add((-(2) * stan::math::log(sigma)));
+            lp_accum__.add(-(stan::math::log(sigma)));
         } catch (const std::exception& e) {
             stan::lang::rethrow_located(e, current_statement_begin__, prog_reader__());
             // Next line prevents compiler griping about no return

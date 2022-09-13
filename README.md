@@ -54,6 +54,9 @@ install.packages("rstan")
 install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary")
 ```
 
+*AppVeyor and GitHub Action failure may be due to current rstan
+version.*
+
 ## Statistical Model
 
 When the homogeneity of variance holds, a linear mixed-effects model
