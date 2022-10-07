@@ -2,7 +2,7 @@
 # https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
 on: workflow_dispatch
 
-name: Package builder for Mac and Windows
+name: Package builder
 
 jobs:
   binary:
@@ -14,20 +14,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macOS-latest,   r: '4.1.1'}
-          - {os: macOS-latest,   r: '4.1.0'}
-          - {os: macOS-latest,   r: '4.0.5'}
-          - {os: macOS-latest,   r: '4.0.4'}
-          - {os: macOS-latest,   r: '4.0.3'}
-          - {os: macOS-latest,   r: '4.0.2'}
-          - {os: macOS-latest,   r: '4.0.1'}
-          - {os: windows-latest,   r: '4.1.1'}
-          - {os: windows-latest,   r: '4.1.0'}
-          - {os: windows-latest,   r: '4.0.5'}
-          - {os: windows-latest,   r: '4.0.4'}
-          - {os: windows-latest,   r: '4.0.3'}
-          - {os: windows-latest,   r: '4.0.2'}
-          - {os: windows-latest,   r: '4.0.1'}
+          - {os: macOS-latest,   r: '4.0'}
+          - {os: windows-latest, r: '4.0'}
 
 
     env:
