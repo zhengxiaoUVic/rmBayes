@@ -8,6 +8,8 @@
 # C++ compiler, including version, compiler flags, and linked libraries
 # same configuration of call to Stan, including random seed, chain ID, initialization and data
 
+skip_on_cran()
+skip_on_appveyor()
 test_that("Test-all, for-loop", {
   options(warn=-1)
   for (method in 0:6) {
