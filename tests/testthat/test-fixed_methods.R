@@ -9,6 +9,8 @@
 # same configuration of call to Stan, including random seed, chain ID, initialization and data
 
 skip_on_cran()
+skip_on_appveyor()
+skip_on_ci()
 skip_on_os(os=c("windows", "linux", "solaris"))
 skip_on_os(os="mac", arch="aarch64")
 
