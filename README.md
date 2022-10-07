@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![Build
-status](https://ci.appveyor.com/api/projects/status/3iqry01fu7p2adev/branch/main?svg=true)](https://ci.appveyor.com/project/zhengxiaoUVic/rmbayes/branch/main)
 [![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
 [![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
 <!-- badges: end -->
@@ -43,19 +41,12 @@ instructions (Stan Development Team, 2020):
 Installation time of the source package is about 11 minutes (Stan models
 need to be compiled). If you have R version 4.0.1 or later on Mac,
 Windows, or Ubuntu, you can find the binary packages
-[HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/). Or, directly
-install the binary package by **preferably** calling
+[HERE](https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check-cran.yaml).
+Or, directly install the binary package by **preferably** calling
 
 ``` r
 install.packages("rmBayes", type = "binary")
-
-#Or, install from GitHub (archived)
-install.packages("rstan")
-install.packages("rmBayes", repos = "https://zhengxiaouvic.github.io/drat", type = "binary")
 ```
-
-*AppVeyor and GitHub Action failure may be due to current rstan
-version.*
 
 ## Statistical Model
 

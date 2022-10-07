@@ -113,14 +113,9 @@
 <li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows" class="external-link">Windows - Configuring C++ Toolchain</a></li>
 <li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux" class="external-link">Linux - Configuring C++ Toolchain</a></li>
 </ul>
-<p>Installation time of the source package is about 11 minutes (Stan models need to be compiled). If you have R version 4.0.1 or later on Mac, Windows, or Ubuntu, you can find the binary packages <a href="https://github.com/zhengxiaoUVic/rmBayes/actions/" class="external-link">HERE</a>. Or, directly install the binary package by <strong>preferably</strong> calling</p>
+<p>Installation time of the source package is about 11 minutes (Stan models need to be compiled). If you have R version 4.0.1 or later on Mac, Windows, or Ubuntu, you can find the binary packages <a href="https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check-cran.yaml" class="external-link">HERE</a>. Or, directly install the binary package by <strong>preferably</strong> calling</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rmBayes"</span>, type <span class="op">=</span> <span class="st">"binary"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#Or, install from GitHub (archived)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rstan"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rmBayes"</span>, repos <span class="op">=</span> <span class="st">"https://zhengxiaouvic.github.io/drat"</span>, type <span class="op">=</span> <span class="st">"binary"</span><span class="op">)</span></span></code></pre></div>
-<p><em>AppVeyor and GitHub Action failure may be due to current rstan version.</em></p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rmBayes"</span>, type <span class="op">=</span> <span class="st">"binary"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="statistical-model">Statistical Model<a class="anchor" aria-label="anchor" href="#statistical-model"></a>
@@ -253,7 +248,6 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://ci.appveyor.com/project/zhengxiaoUVic/rmbayes/branch/main" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/3iqry01fu7p2adev/branch/main?svg=true" alt="Build status"></a></li>
 <li><a href="https://app.codecov.io/gh/zhengxiaoUVic/rmBayes" class="external-link"><img src="https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP" alt="codecov"></a></li>
 <li><a href="https://github.com/zhengxiaoUVic/rmBayes/actions" class="external-link"><img src="https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
