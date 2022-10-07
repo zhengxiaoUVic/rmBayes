@@ -9,7 +9,8 @@
 # same configuration of call to Stan, including random seed, chain ID, initialization and data
 
 skip_on_cran()
-skip_on_os(c("windows", "linux", "solaris"))
+skip_on_os(os=c("windows", "linux", "solaris"))
+skip_on_os(os="mac", arch="aarch64")
 
 test_that("Within-subjects HDI width computed by Method 1 (fixed treatment effects)", {
   HDI <- rmHDI(data.wide = recall.wide, seed = 277, treat = "fixed")
