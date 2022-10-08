@@ -111,7 +111,7 @@
 #'
 #' @author Zhengxiao Wei (\email{zhengxiao@@uvic.ca}),
 #' Farouk S. Nathoo (\email{nathoo@@uvic.ca}),
-#' Michael E.J. Masson (\email{mmasson@@uvic.ca}).
+#' Michael E. J. Masson (\email{mmasson@@uvic.ca}).
 #' @references Heck, D. W. (2019). Accounting for estimation uncertainty and shrinkage in Bayesian within-subject intervals: A comment on Nathoo, Kilshaw, and Masson (2018). Journal of Mathematical Psychology, 88, 27–31.
 #'
 #' Loftus, G. R., & Masson, M. E. J. (1994). Using confidence intervals in within-subject designs. Psychonomic Bulletin & Review, 1, 476–490.

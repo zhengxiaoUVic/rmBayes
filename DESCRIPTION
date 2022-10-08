@@ -1,7 +1,7 @@
 Package: rmBayes
 Type: Package
 Title: Performing Bayesian Inference for Repeated-Measures Designs
-Version: 0.1.15
+Version: 0.1.15.9000
 Date: 2022-09-12
 Authors@R: 
     c(person(given = "Zhengxiao",
@@ -14,7 +14,7 @@ Authors@R:
            role = c("aut"),
            email = "nathoo@uvic.ca",
            comment = c(ORCID = "0000-0002-2569-3507")),
-    person(given = "Michael E.J.",
+    person(given = "Michael E. J.",
            family = "Masson",
            role = c("aut"),
            email = "mmasson@uvic.ca",

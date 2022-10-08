@@ -196,5 +196,5 @@ Stan Development Team (2020). RStan: the R interface to Stan. R package version 
 \author{
 Zhengxiao Wei (\email{zhengxiao@uvic.ca}),
 Farouk S. Nathoo (\email{nathoo@uvic.ca}),
-Michael E.J. Masson (\email{mmasson@uvic.ca}).
+Michael E. J. Masson (\email{mmasson@uvic.ca}).
 }
