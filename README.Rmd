@@ -29,7 +29,7 @@ For both the homoscedastic and heteroscedastic cases in one-way within-subjects 
 
 Type | Source | Command
 ---|---|---
-Release | [CRAN](https://CRAN.R-project.org) | `install.packages("rmBayes")`
+Release | [CRAN](https://cran.r-project.org/package=rmBayes) | `install.packages("rmBayes")`
 Development | GitHub | `remotes::install_github("zhengxiaoUVic/rmBayes")`
 
 R 4.0.1 or later is recommended. Prior to installing the package, you need to configure your R installation to be able to compile C++ code. Follow the link below for your respective operating system for more instructions (Stan Development Team, 2020):
@@ -77,7 +77,7 @@ The within-group sum-of-squares (SS) is $\textit{SS}_W=\sum_{i=1}^{a}\sum_{j=1}^
 
 The interaction SS is $\textit{SS}_{S\times C}=\sum_{i=1}^{a}\sum_{j=1}^{n}\left(Y_{ij}-(M_{\centerdot j}-M)-M_{i\centerdot}\right)^2$.
 
-$t^*$ refers to the two-sided $t$-distribution critical value.
+$t^*$ refers to a critical value for the $t$-distribution.
 
 ``` r
 library(rmBayes)
@@ -139,7 +139,7 @@ rmHDI(recall.long, design = "between", seed = 277)
 
 ## Random Versus Fixed Effects
 
-When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that $t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g)$, $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q}$, and $\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}}$,
+When modeling fixed effects, Rouder et al. (2012, p. 363) proposed default priors by projecting a set of $a$ main effects into $a-1$ parameters such that $t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g)$, $(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q}$, and $\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{Q^{\top}}$,
 
 where $\mathbf{I}_a$ is the identity matrix of size $a$, $\mathbf{J}_a$ is the all-ones matrix of size $a$, $\mathbf{Q}$ is an $a\times (a-1)$ matrix of the $a-1$ eigenvectors of unit length corresponding to the nonzero eigenvalues of $\mathbf{I}_a-a^{-1}\mathbf{J}_a$, and $(t_1,\dotsb,t_{a})$ is the row vector.
 

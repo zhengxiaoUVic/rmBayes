@@ -21,10 +21,10 @@ presented in Heck (2019).
 
 ## Installation
 
-| Type        | Source                             | Command                                            |
-|-------------|------------------------------------|----------------------------------------------------|
-| Release     | [CRAN](https://CRAN.R-project.org) | `install.packages("rmBayes")`                      |
-| Development | GitHub                             | `remotes::install_github("zhengxiaoUVic/rmBayes")` |
+| Type        | Source                                             | Command                                            |
+|-------------|----------------------------------------------------|----------------------------------------------------|
+| Release     | [CRAN](https://cran.r-project.org/package=rmBayes) | `install.packages("rmBayes")`                      |
+| Development | GitHub                                             | `remotes::install_github("zhengxiaoUVic/rmBayes")` |
 
 R 4.0.1 or later is recommended. Prior to installing the package, you
 need to configure your R installation to be able to compile C++ code.
@@ -113,10 +113,9 @@ The within-group sum-of-squares (SS) is
 The interaction SS is
 ![\textit{SS}\_{S\times C}=\sum\_{i=1}^{a}\sum\_{j=1}^{n}\left(Y\_{ij}-(M\_{\centerdot j}-M)-M\_{i\centerdot}\right)^2](https://latex.codecogs.com/png.image?%5Ctextit%7BSS%7D_%7BS%5Ctimes%20C%7D%3D%5Csum_%7Bi%3D1%7D%5E%7Ba%7D%5Csum_%7Bj%3D1%7D%5E%7Bn%7D%5Cleft%28Y_%7Bij%7D-%28M_%7B%5Ccenterdot%20j%7D-M%29-M_%7Bi%5Ccenterdot%7D%5Cright%29%5E2 "\textit{SS}_{S\times C}=\sum_{i=1}^{a}\sum_{j=1}^{n}\left(Y_{ij}-(M_{\centerdot j}-M)-M_{i\centerdot}\right)^2").
 
-![t^\*](https://latex.codecogs.com/png.image?t%5E%2A "t^*") refers to
-the two-sided
-![t](https://latex.codecogs.com/png.image?t "t")-distribution critical
-value.
+![t^\*](https://latex.codecogs.com/png.image?t%5E%2A "t^*") refers to a
+critical value for the
+![t](https://latex.codecogs.com/png.image?t "t")-distribution.
 
 ``` r
 library(rmBayes)
@@ -226,7 +225,7 @@ that
 ![t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g)](https://latex.codecogs.com/png.image?t_i%5E%7B%5Cstar%7D%5Cmid%20g%5Coverset%7B%5Ctext%7Bind.%7D%7D%7B%5Csim%7D%5Cmathcal%7BN%7D%280%2Cg%29 "t_i^{\star}\mid g\overset{\text{ind.}}{\sim}\mathcal{N}(0,g)"),
 ![(t_1^{\star},\dotsb,t\_{a-1}^{\star})=(t_1,\dotsb,t\_{a})\cdot\mathbf{Q}](https://latex.codecogs.com/png.image?%28t_1%5E%7B%5Cstar%7D%2C%5Cdotsb%2Ct_%7Ba-1%7D%5E%7B%5Cstar%7D%29%3D%28t_1%2C%5Cdotsb%2Ct_%7Ba%7D%29%5Ccdot%5Cmathbf%7BQ%7D "(t_1^{\star},\dotsb,t_{a-1}^{\star})=(t_1,\dotsb,t_{a})\cdot\mathbf{Q}"),
 and
-![\mathbf{I}\_a-a^{-1}\mathbf{J}\_a=\mathbf{Q}\cdot\mathbf{I}\_{a-1}\cdot\mathbf{Q^{\top}}](https://latex.codecogs.com/png.image?%5Cmathbf%7BI%7D_a-a%5E%7B-1%7D%5Cmathbf%7BJ%7D_a%3D%5Cmathbf%7BQ%7D%5Ccdot%5Cmathbf%7BI%7D_%7Ba-1%7D%5Ccdot%5Cmathbf%7BQ%5E%7B%5Ctop%7D%7D "\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{I}_{a-1}\cdot\mathbf{Q^{\top}}"),
+![\mathbf{I}\_a-a^{-1}\mathbf{J}\_a=\mathbf{Q}\cdot\mathbf{Q^{\top}}](https://latex.codecogs.com/png.image?%5Cmathbf%7BI%7D_a-a%5E%7B-1%7D%5Cmathbf%7BJ%7D_a%3D%5Cmathbf%7BQ%7D%5Ccdot%5Cmathbf%7BQ%5E%7B%5Ctop%7D%7D "\mathbf{I}_a-a^{-1}\mathbf{J}_a=\mathbf{Q}\cdot\mathbf{Q^{\top}}"),
 
 where
 ![\mathbf{I}\_a](https://latex.codecogs.com/png.image?%5Cmathbf%7BI%7D_a "\mathbf{I}_a")
