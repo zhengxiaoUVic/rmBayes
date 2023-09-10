@@ -1,7 +1,7 @@
 data {
   int<lower=1> N;        // number of subjects
   int<lower=2> C;        // number of conditions
-  vector[C] Y[N];        // responses
+  array[N] vector[C] Y;        // responses
   real tcrit;            // critical value
   real<lower=0> hb;      // (square root) scale parameter of the standardized subject-specific random effects
 }

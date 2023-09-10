@@ -1,7 +1,7 @@
 data {
   int<lower=1> N;        // number of subjects
   int<lower=2> C;        // number of conditions
-  vector[C] Y[N];        // responses
+  array[N] vector[C] Y;        // responses
   real tcrit;            // critical value
   matrix[C,C-1] Q;       // projecting C fixed effects into C-1
 }
