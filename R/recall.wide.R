@@ -4,7 +4,7 @@
 #' measure effects of study time in a free-recall paradigm. In this hypothetical experiment,
 #' to-be-recalled 20-word lists are presented at a rate of 1, 2, or 5 sec per word.
 #' Of interest is the relation between study time and number of recalled list words.
-#' Suppose that the experiment is run as a within-subjects (repeated-measures) design,
+#' Suppose that the experiment is run as a within-subject (repeated-measures) design,
 #' including a total of 10 subjects, each of whom participated in all three study-time conditions.
 #'
 #' @format A data frame with 10 rows (each row corresponds to a subject) and 3 variables:
