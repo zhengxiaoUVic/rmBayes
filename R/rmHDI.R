@@ -122,7 +122,7 @@
 #'
 #' Stan Development Team (2024). RStan: the R interface to Stan. R package version 2.32.5 https://mc-stan.org
 #'
-#' Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
+#' Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the Bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
 #'
 #' @examples
 #' \dontrun{

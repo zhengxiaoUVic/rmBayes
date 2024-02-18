@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmBayes</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.15.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.16.9000</span>
       </span>
     </div>
 
@@ -48,6 +48,16 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.1.16" id="rmbayes-0116">rmBayes 0.1.16<a class="anchor" aria-label="anchor" href="#rmbayes-0116"></a></h2>
+<ul><li>
+<p>Updated Stan deprecated syntax. Required rstan version 2.26 or later. See reference at <a href="https://mc-stan.org/docs/reference-manual/postfix-brackets-array-syntax.html" class="external-link uri">https://mc-stan.org/docs/reference-manual/postfix-brackets-array-syntax.html</a></p>
+<p>For instance, the syntax <code>vector[C] Y[N];</code> is deprecated and will be removed in Stan 2.33. The postfix bracket notation for arrays is replaced by <code>array[N] vector[C] Y;</code>.</p>
+<p><code>int s[C];</code> is replaced by <code>array[C] int s;</code>.</p>
+<p>The syntax for declaring vector types, such as <code>vector[N] b;</code>, remains unchanged.</p>
+</li>
+<li><p>Updated package doc. <code>@docType "package"</code> is deprecated. Please document “_PACKAGE” instead.</p></li>
+</ul></div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.15" id="rmbayes-0115">rmBayes 0.1.15<small>2022-09-14</small><a class="anchor" aria-label="anchor" href="#rmbayes-0115"></a></h2>
 <ul><li>Corrected the Stan syntax of the Jeffreys prior for the standard deviation. See discussion at <a href="https://discourse.mc-stan.org/t/jeffreys-prior-for-a-vector-variable/28338" class="external-link uri">https://discourse.mc-stan.org/t/jeffreys-prior-for-a-vector-variable/28338</a>
 </li>
@@ -76,7 +86,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

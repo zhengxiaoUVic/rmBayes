@@ -2,8 +2,8 @@
 % Please edit documentation in R/rmBayes-package.R
 \docType{package}
 \name{rmBayes-package}
-\alias{rmBayes-package}
 \alias{rmBayes}
+\alias{rmBayes-package}
 \title{The 'rmBayes' package.}
 \description{
 Performing Bayesian Inference for Repeated-Measures Designs
@@ -11,11 +11,11 @@ Performing Bayesian Inference for Repeated-Measures Designs
 A Bayesian credible interval is interpreted with respect to posterior probability,
 and this interpretation is far more intuitive than that of a frequentist confidence interval.
 However, standard highest-density intervals can be wide due to between-subjects variability and tends
-to hide within-subjects effects, rendering its relationship with the Bayes factor less clear
-in within-subjects (repeated-measures) designs.
-This urgent issue can be addressed by using within-subjects intervals in within-subjects designs,
-which integrate four methods including the Loftus-Masson (1994) \url{doi:10.3758/BF03210951},
-the Rouder-Morey-Speckman-Province (2012) \url{doi:10.1016/j.jmp.2012.08.001},
+to hide within-subject effects, rendering its relationship with the Bayes factor less clear
+in within-subject (repeated-measures) designs.
+This urgent issue can be addressed by using within-subject intervals in within-subject designs,
+which integrate four methods including the Wei-Nathoo-Masson (2023) \url{doi:10.3758/s13423-023-02295-1},
+the Loftus-Masson (1994) \url{doi:10.3758/BF03210951},
 the Nathoo-Kilshaw-Masson (2018) \url{doi:10.1016/j.jmp.2018.07.005},
 and the Heck (2019) \url{doi:10.31234/osf.io/whp8t} interval estimates.
 }
@@ -28,5 +28,26 @@ Nathoo, F. S., Kilshaw, R. E., & Masson, M. E. J. (2018). A better (Bayesian) in
 
 Rouder, J. N., Morey, R. D., Speckman, P. L., & Province, J. M. (2012). Default Bayes factors for ANOVA designs. Journal of Mathematical Psychology, 56, 356–374.
 
-Stan Development Team (2020). RStan: the R interface to Stan. R package version 2.21.2. https://mc-stan.org
+Stan Development Team (2024). RStan: the R interface to Stan. R package version 2.32.5 https://mc-stan.org
+
+Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the Bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/zhengxiaoUVic/rmBayes}
+  \item Report bugs at \url{https://github.com/zhengxiaoUVic/rmBayes/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Zhengxiao Wei \email{zhengxiao@uvic.ca} (\href{https://orcid.org/0000-0003-1866-2320}{ORCID})
+
+Authors:
+\itemize{
+  \item Farouk S. Nathoo \email{nathoo@uvic.ca} (\href{https://orcid.org/0000-0002-2569-3507}{ORCID})
+  \item Michael E. J. Masson \email{mmasson@uvic.ca} (\href{https://orcid.org/0000-0002-5430-6078}{ORCID})
+}
+
+}
+\keyword{internal}

@@ -1,7 +1,8 @@
 data {
   int<lower=1> N;        // number of subjects
   int<lower=2> C;        // number of conditions
-  vector[C] Y[N];        // responses
+  // vector[C] Y[N];        // responses [removed features]
+  array[N] vector[C] Y;  // responses [Stan 2.26+ syntax for array declarations]
   real tcrit;            // critical value
 }
 

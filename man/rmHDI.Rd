@@ -27,7 +27,7 @@ rmHDI(
 )
 }
 \arguments{
-\item{data}{A long format matrix or data frame of the within-subjects data whose three columns are labeled in \code{whichSubject}, \code{whichLevel}, and \code{whichResponse} (see Examples).}
+\item{data}{A long format matrix or data frame of the within-subject data whose three columns are labeled in \code{whichSubject}, \code{whichLevel}, and \code{whichResponse} (see Examples).}
 
 \item{whichSubject}{A character string specifying the column name of subject variable in the long format data.}
 
@@ -35,7 +35,7 @@ rmHDI(
 
 \item{whichResponse}{A character string specifying the column name of response variable in the long format data.}
 
-\item{data.wide}{Alternatively, a wide format matrix or data frame of the within-subjects data whose column indices are condition levels (see Examples).
+\item{data.wide}{Alternatively, a wide format matrix or data frame of the within-subject data whose column indices are condition levels (see Examples).
 If both \code{data} and \code{data.wide} are specified, the credible intervals are only computed for \code{data}.}
 
 \item{cred}{A scalar \code{[0,1]} specifying the credibility level of the credible interval. The default is .95.}
@@ -46,7 +46,7 @@ If both \code{data} and \code{data.wide} are specified, the credible intervals a
 
 \item{chains}{A positive integer specifying the number of Markov chains. The default is 4.}
 
-\item{method}{A positive integer in \code{0:6} specifying which method is used to construct within-subjects HDIs (see Details).
+\item{method}{A positive integer in \code{0:6} specifying which method is used to construct within-subject HDIs (see Details).
 \code{method=0} implements the approach developed by Nathoo et al. (2018).
 \code{method=4} implements the approach by Heck (2019).
 \code{method=5} implements the approach by Heck (2019), but using the standard uniform prior distribution for the standard deviation of subject-specific random effects.
@@ -60,22 +60,22 @@ For the computation of the standard HDI, see the \code{design} argument below.}
 \item{var.equal}{A logical variable indicating whether to treat the variance of the response within each condition (level of the experimental manipulation) as being equal.
 If \code{TRUE} (default), the homogeneity of variance holds, and a common variance across conditions is assumed.
 Otherwise, \code{FALSE} will generate unequal interval widths for conditions.
-Two approaches are currently provided for the heteroscedastic within-subjects data: \code{method=0} implements the approach developed by Nathoo et al. (2018, p. 5);
+Two approaches are currently provided for the heteroscedastic within-subject data: \code{method=0} implements the approach developed by Nathoo et al. (2018, p. 5);
 \code{method=1} (default method if \code{var.equal=FALSE}) implements the heteroscedastic standard HDI method on the subject-centering transformed data.
 If a \code{method} option other than \code{0} or \code{1} is used with \code{var.equal=FALSE},
 a pooled estimate of variability will be used just as in the homoscedastic case, and a warning message will be returned.}
 
 \item{design}{A character string specifying the experimental design.
-If \code{"within"} (default), construct the within-subjects HDIs based on the given \code{method} in \code{0:6}.
+If \code{"within"} (default), construct the within-subject HDIs based on the given \code{method} in \code{0:6}.
 If \code{"between"}, construct the standard HDIs using the priors in \code{method=1} (but not removing the between-subjects variability).}
 
 \item{treat}{A character string specifying the type of condition effects when \code{method} in \code{1:3}.
 If \code{"fixed"}, treat the condition effects as fixed effects through the reduced parametrization proposed by Rouder et al. (2012, p. 363).
 If \code{"random"} (default), treat the condition effects as random effects.}
 
-\item{ht}{A positive real number specifying the prior scale for standardized condition effects when \code{method=1} (see Details). The default is 0.5 when \code{treat="fixed"} and 1 when \code{treat="random"}.}
+\item{ht}{A positive real number specifying the prior scale on the variability of standardized condition effects when \code{method=1} (see Details). The default is 0.5 when \code{treat="fixed"} and 1 when \code{treat="random"}.}
 
-\item{hb}{A positive real number specifying the prior scale for standardized subject-specific random effects when \code{method=1} or \code{method=4} (see Details). The default is 1.}
+\item{hb}{A positive real number specifying the prior scale on the variability of standardized subject-specific random effects when \code{method=1} or \code{method=4} (see Details). The default is 1.}
 
 \item{seed}{The seed for random number generation.}
 
@@ -104,14 +104,14 @@ A \code{list} with three components, if \code{diagnostics=FALSE}:
 A \code{list} with four components including an additional object of S4 class representing the fitted results, if \code{diagnostics=TRUE}.
 }
 \description{
-For both the homoscedastic and heteroscedastic cases in one-way within-subjects (repeated-measures) designs,
+For both the homoscedastic and heteroscedastic cases in one-way within-subject (repeated-measures) designs,
 this function provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors.
-The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subjects designs, as
+The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subject designs, as
 proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).
 }
 \details{
-We consider three credible intervals:
-(1) the within-subjects Bayesian interval developed by Nathoo et al. (2018),
+Wei, Nathoo, and Masson (2023) consider three credible intervals:
+(1) the within-subject Bayesian interval developed by Nathoo et al. (2018),
 whose derivation conditions on estimated random effects,
 (2) a modification of (1) based on a proposal by Heck (2019) to allow for shrinkage and account for estimation uncertainty,
 and (3) an alternative to option (2) based on the default priors used in Rouder, Morey, Speckman, and Province (2012).
@@ -119,7 +119,7 @@ Markov chain Monte Carlo sampling is also used to obtain the standard highest-de
 for each condition mean in a one-way between-subjects design.
 
 When the homogeneity of variance holds,
-a linear mixed-effects model \eqn{M_1} for the mean response in a one-way within-subjects design is
+a linear mixed-effects model \eqn{M_1} for the mean response in a one-way within-subject design is
 \deqn{M_1: Y_{ij} = \mu + \sigma_\epsilon (t_i + b_j) + \epsilon_{ij}  versus  M_0: Y_{ij} = \mu + \sigma_\epsilon b_j + \epsilon_{ij},  \epsilon_{ij} ~ N(0, \sigma_\epsilon^2),  i=1,\ldots,a; j=1,\ldots,n,}
 where \eqn{Y_ij} represents the mean response for the \eqn{j}-th
 subject under the \eqn{i}-th level of the experimental manipulation;
@@ -191,7 +191,9 @@ Nathoo, F. S., Kilshaw, R. E., & Masson, M. E. J. (2018). A better (Bayesian) in
 
 Rouder, J. N., Morey, R. D., Speckman, P. L., & Province, J. M. (2012). Default Bayes factors for ANOVA designs. Journal of Mathematical Psychology, 56, 356–374.
 
-Stan Development Team (2020). RStan: the R interface to Stan. R package version 2.21.2.  https://mc-stan.org
+Stan Development Team (2024). RStan: the R interface to Stan. R package version 2.32.5 https://mc-stan.org
+
+Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the Bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
 }
 \author{
 Zhengxiao Wei (\email{zhengxiao@uvic.ca}),

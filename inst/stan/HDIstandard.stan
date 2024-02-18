@@ -2,8 +2,9 @@ data {
   int<lower=1> N;        // total number of subjects
   int<lower=2> C;        // number of conditions
   vector[N] Y;           // responses (ready for the ragged data structure)
-  int s[C];              // condition sizes
-  real<lower=0> ht;      // (square root) scale parameter of the standardized treatment effects
+  // int s[C];              // condition sizes [removed features]
+  array[C] int s;        // condition sizes [Stan 2.26+ syntax for array declarations]
+  real<lower=0> ht;      // (square root) prior scale on the variability of the standardized treatment effects
 }
 
 parameters {

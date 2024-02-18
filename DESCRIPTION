@@ -2,7 +2,7 @@ Package: rmBayes
 Type: Package
 Title: Performing Bayesian Inference for Repeated-Measures Designs
 Version: 0.1.16.9000
-Date: 2023-02-16
+Date: 2023-02-18
 Authors@R: 
     c(person(given = "Zhengxiao",
            family = "Wei",
@@ -33,7 +33,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
 Biarch: true
 Depends: 
     R (>= 3.5.0)
@@ -41,7 +41,7 @@ Imports:
     methods,
     Rcpp (>= 0.12.0),
     RcppParallel,
-    rstan (>= 2.18.1),
+    rstan (>= 2.26.0),
     rstantools (>= 2.1.1),
     stats
 LinkingTo: 
@@ -49,8 +49,8 @@ LinkingTo:
     Rcpp (>= 0.12.0),
     RcppEigen (>= 0.3.3.3.0),
     RcppParallel,
-    rstan (>= 2.18.1),
-    StanHeaders (>= 2.18.0)
+    rstan (>= 2.26.0),
+    StanHeaders (>= 2.26.0)
 SystemRequirements: GNU make
 URL: https://github.com/zhengxiaoUVic/rmBayes
 BugReports: https://github.com/zhengxiaoUVic/rmBayes/issues

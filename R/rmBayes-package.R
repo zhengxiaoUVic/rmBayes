@@ -13,9 +13,7 @@
 #' the Nathoo-Kilshaw-Masson (2018) <doi:10.1016/j.jmp.2018.07.005>,
 #' and the Heck (2019) <doi:10.31234/osf.io/whp8t> interval estimates.
 #'
-#' @docType package
-#' @name rmBayes-package
-#' @aliases rmBayes
+#' @keywords internal
 #' @useDynLib rmBayes, .registration = TRUE
 #' @import methods
 #' @import Rcpp
@@ -35,6 +33,6 @@
 #'
 #' Stan Development Team (2024). RStan: the R interface to Stan. R package version 2.32.5 https://mc-stan.org
 #'
-#' Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
+#' Wei, Z., Nathoo, F. S., & Masson, M. E. J. (2023). Investigating the relationship between the Bayes factor and the separation of credible intervals. Psychonomic Bulletin & Review, 30, 1759–1781.
 #'
-NULL
+"_PACKAGE"

@@ -1,11 +1,12 @@
 data {
   int<lower=1> N;        // number of subjects
   int<lower=2> C;        // number of conditions
-  vector[C] Y[N];        // responses
+  // vector[C] Y[N];        // responses [removed features]
+  array[N] vector[C] Y;  // responses [Stan 2.26+ syntax for array declarations]
   real tcrit;            // critical value
   matrix[C,C-1] Q;       // projecting C fixed effects into C-1
-  real<lower=0> ht;      // (square root) scale parameter of the standardized treatment effects
-  real<lower=0> hb;      // (square root) scale parameter of the standardized subject-specific random effects
+  real<lower=0> ht;      // (square root) prior scale on the variability of the standardized treatment effects
+  real<lower=0> hb;      // (square root) prior scale on the variability of the standardized subject-specific random effects
 }
 
 parameters {
