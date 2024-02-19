@@ -1,5 +1,11 @@
 ## CRAN submission
 
+* Re-submitted: February 19, 2024.
+* Accepted: February 19, 2024.
+The Date field is over a month old.
+
+It's 2024! I accidentally wrote the year 2024 as 2023 in DESCRIPTION.
+
 * Re-submitted: September 12, 2022.
 * Accepted: September 12, 2022.
 Found the following (possibly) invalid URLs:
@@ -14,8 +20,7 @@ For future submissions/updates: If there are references describing the methods i
 
 ## Test environments
 
-* local: darwin18.6.0
-* appveyor: windows-x86_64-release
+* local: darwin22.6.0, darwin18.6.0
 * win-builder: windows-x86_64-oldrel, release, devel
 * GitHub Actions: macOS-latest-release, windows-latest-release, ubuntu-latest-devel, ubuntu-latest-release, ubuntu-latest-oldrel 
 
