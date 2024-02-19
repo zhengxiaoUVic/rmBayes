@@ -25,9 +25,9 @@ For future submissions/updates: If there are references describing the methods i
 Any package is larger than 5Mb.
 ```
 > checking installed package size ... NOTE
-installed size is  11.8Mb
+installed size is  9.9Mb
 sub-directories of 1Mb or more:
-  libs   11.4Mb
+  libs   9.5Mb
 ```
 
 This is a Stan-based R package.

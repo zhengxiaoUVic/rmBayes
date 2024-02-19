@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 # Bayesian Interval Estimation for Repeated-Measures Designs
 
 <!-- badges: start -->
-[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
-[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
+[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
+[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way within-subject (repeated-measures) designs, this Stan-based R package provides multiple methods to construct the credible intervals for condition means, with each method based on different sets of priors. The emphasis is on the calculation of intervals that remove the between-subjects variability that is a nuisance in within-subject designs, as proposed in Loftus and Masson (1994), the Bayesian analog proposed in Nathoo, Kilshaw, and Masson (2018), and the adaptation presented in Heck (2019).

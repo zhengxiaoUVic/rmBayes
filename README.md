@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/branch/main/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
-[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/workflows/R-CMD-check/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions)
+[![codecov](https://codecov.io/gh/zhengxiaoUVic/rmBayes/graph/badge.svg?token=EKOU0WSJIP)](https://app.codecov.io/gh/zhengxiaoUVic/rmBayes)
+[![R-CMD-check](https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/zhengxiaoUVic/rmBayes/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 For both the homoscedastic and heteroscedastic cases in one-way
