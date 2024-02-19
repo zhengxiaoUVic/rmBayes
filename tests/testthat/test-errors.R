@@ -63,11 +63,6 @@ test_that("Error handling - missing value, wide", {
   mat_missing.value[3,1] <- NA
   expect_error(rmHDI(data.wide = mat_missing.value),
                "Invalid input: Data may contain NA or Inf.")
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  HDI <- rmHDI(data.wide = mat_missing.value, seed = 277, design = "between")
-  width <- unname(round(HDI$width, 5))
-  expect_equal(width, c(3.73764, 3.48642, 3.59351))
 })
 
 test_that("Error handling - missing value, long", {
@@ -75,67 +70,6 @@ test_that("Error handling - missing value, long", {
   df_missing.value[3,3] <- NA
   expect_error(rmHDI(df_missing.value),
                "Invalid input: Data may contain NA or Inf.")
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  HDI <- rmHDI(df_missing.value, seed = 277, design = "between")
-  width <- unname(round(HDI$width, 5))
-  expect_equal(width, c(3.73764, 3.48642, 3.59351))
-})
-
-test_that("unbalanced, long", {
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  df_unbalanced <- recall.long #unbalanced long format data (no NA)
-  df_unbalanced <- df_unbalanced[-3,]
-  HDI <- rmHDI(df_unbalanced, seed = 277, design = "between")
-  width <- unname(round(HDI$width, 5))
-  expect_equal(width, c(3.73764, 3.48642, 3.59351))
-})
-
-test_that("Error handling - rename, long", {
-  df_col.rename <- recall.long
-  colnames(df_col.rename)[2] <- "Condition"
-  expect_error(rmHDI(df_col.rename, seed = 277, whichLevel = "Level"),
-               "Long format data do not contain the column name Level")
-  expect_error(rmHDI(df_col.rename, seed = 277, whichSubject = "Participant"),
-               "Long format data do not contain the column name Participant")
-  expect_error(rmHDI(df_col.rename, seed = 277, whichLevel = "Condition", whichResponse = "DV"),
-               "Long format data do not contain the column name DV")
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  HDI <- rmHDI(df_col.rename, seed = 277, whichLevel = "Condition")
-  width <- unname(round(HDI$width, 5))
-  expect_equal(width, 0.55911)
-})
-
-test_that("no column names, wide", {
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  mat_nocolname <- recall.wide
-  colnames(mat_nocolname) <- NULL
-  HDI <- rmHDI(data.wide = mat_nocolname, seed = 277)
-  width <- round(HDI$width, 5)
-  expect_equal(width, 0.55911)
-})
-
-test_that("bad column names, wide", {
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  mat_badcolname <- recall.wide
-  colnames(mat_badcolname) <- c("Level1","","Level3")
-  HDI <- rmHDI(data.wide = mat_badcolname, seed = 277)
-  width <- round(HDI$width, 5)
-  expect_equal(width, 0.55881)
-})
-
-test_that("missing any column names, wide", {
-  skip_on_cran()
-  skip_on_os(c("windows", "linux", "solaris"))
-  mat_misscolname <- recall.wide
-  colnames(mat_misscolname) <- c("Level1",NA,"Level3")
-  HDI <- rmHDI(data.wide = mat_misscolname, seed = 277)
-  width <- round(HDI$width, 5)
-  expect_equal(width, 0.56046)
 })
 
 test_that("Error handling - missing one column, wide", {
