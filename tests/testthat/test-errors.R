@@ -159,13 +159,13 @@ test_that("Warning 1", {
 
 test_that("Warning 2", {
   expect_warning(rmHDI(recall.long, design = "between", seed = 277, method = 0),
-                 "Within-subjects highest-density intervals are constructed by method 0, which does not require specifying")
-})
+                 "Within-subject highest-density intervals are constructed by method 0, which does not require specifying")
+}) #Choice of words
 
 test_that("Warning 3", {
   expect_warning(rmHDI(recall.long, var.equal =  FALSE, seed = "277", hb = 2),
-                 "Current method for the within-subjects highest-density intervals")
-})
+                 "Current method for the within-subject highest-density intervals")
+}) #Choice of words
 
 test_that("Warning 5", {
   expect_warning(rmHDI(recall.long, method = 4, seed = "277", ht = 2),

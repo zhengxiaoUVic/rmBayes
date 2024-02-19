@@ -234,7 +234,7 @@ rmHDI <- function(data = NULL, whichSubject = "Subject", whichLevel = "Level", w
     warning("Standard highest-density intervals method does not require specifying the 'method' and 'hb' arguments. See ?rmHDI for details.")
   }
   if (method == 0 && (design != "within" || treat != "random" || diagnostics || hb != 1 || ht != 1)) {
-    warning("within-subject highest-density intervals are constructed by method 0, which does not require specifying the 'design', 'treat', 'ht', 'hb', and 'diagnostics' arguments. See ?rmHDI for details.")
+    warning("Within-subject highest-density intervals are constructed by method 0, which does not require specifying the 'design', 'treat', 'ht', 'hb', and 'diagnostics' arguments. See ?rmHDI for details.")
   }
   if(!var.equal && design == "within" && method %in% 2:6) {
     #within-subject highest-density intervals (for a heteroscedastic case) are currently constructed by implementing the standard highest-density intervals method on the subject-centering transformed data.
